@@ -65,7 +65,7 @@
       <table class="stats-table">
         <thead>
           <tr>
-            <th>Player</th><th>Pos</th><th>Ht</th><th>GP</th><th>PPG</th><th>RPG</th><th>APG</th><th>SPG</th><th>BPG</th><th>TOPG</th><th>FG</th><th>FG%</th><th>3PT</th><th>3P%</th><th>FT%</th>
+            <th>Player</th><th>Pos</th><th>Ht</th><th>GP</th><th>PPG</th><th>RPG</th><th>APG</th><th>SPG</th><th>BPG</th><th>TOPG</th><th>FG</th><th>FG%</th><th>3PT</th><th>3P%</th><th>FT</th><th>FT%</th>
           </tr>
         </thead>
         <tbody>
@@ -86,6 +86,7 @@
               <td>${avg.fgPct}%</td>
               <td>${(s.totals.tpm / (s.totals.gp || 1)).toFixed(1)}/${(s.totals.tpa / (s.totals.gp || 1)).toFixed(1)}</td>
               <td>${avg.tpPct}%</td>
+              <td>${(s.totals.ftm / (s.totals.gp || 1)).toFixed(1)}/${(s.totals.fta / (s.totals.gp || 1)).toFixed(1)}</td>
               <td>${avg.ftPct}%</td>
             </tr>`;
           }).join('')}
