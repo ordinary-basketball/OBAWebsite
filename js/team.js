@@ -22,8 +22,8 @@
 
   document.title = `${team.name} - OBA`;
 
-  // Calculate team per-game stats
-  const teamGames = games.filter(g => g.homeTeam === teamId || g.awayTeam === teamId);
+  // Calculate team per-game stats (regular season only)
+  const teamGames = games.filter(g => !g.round && (g.homeTeam === teamId || g.awayTeam === teamId));
   let totalPts = 0, totalReb = 0, totalAst = 0;
   teamGames.forEach(g => {
     const box = g.boxScore[teamId] || [];

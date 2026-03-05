@@ -9,5 +9,13 @@
     "bestCelebration": { "playerId": "ryanc" },
     "bestTrashTalker": { "playerId": "timp" },
     "mrHustle": { "playerId": "jobol" }
+  },
+  "finalsMvp": {
+    "playerId": "nathanp",
+    "highlights": "40 pts, 19 reb, 5 ast, 4 stl — led Team Nathan to the Season 1 title"
+  },
+  "playoffMvp": {
+    "playerId": "joshs",
+    "highlights": "45 pts in Play-In, triple-double (22/13/10) in the Championship — dominated across 3 playoff games"
   }
 }

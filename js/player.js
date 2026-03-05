@@ -18,6 +18,19 @@
   const { totals, gameLogs } = await OBA.getPlayerSeasonStats(playerId);
   const avg = OBA.calcAverages(totals);
 
+  // Compute playoff stats
+  const playoffLogs = gameLogs.filter(g => g.round);
+  let playoffAvg = null;
+  if (playoffLogs.length > 0) {
+    const pTotals = { gp: 0, pts: 0, reb: 0, ast: 0, stl: 0, blk: 0, to: 0, fgm: 0, fga: 0, tpm: 0, tpa: 0, ftm: 0, fta: 0 };
+    playoffLogs.forEach(g => {
+      pTotals.gp++;
+      ['pts','reb','ast','stl','blk','to','fgm','fga','tpm','tpa','ftm','fta'].forEach(k => pTotals[k] += g[k] || 0);
+    });
+    playoffAvg = OBA.calcAverages(pTotals);
+    playoffAvg.gp = pTotals.gp;
+  }
+
   document.title = `${player.name} - OBA`;
 
   const initials = player.name.split(' ').map(n => n[0]).join('');
@@ -46,6 +59,20 @@
       <div class="avg-card"><div class="value">${avg.tpPct}%</div><div class="label">3P%</div></div>
       <div class="avg-card"><div class="value">${avg.ftPct}%</div><div class="label">FT%</div></div>
     </div>
+
+    ${playoffAvg ? `
+    <h2 class="section-title">Playoff Averages <span class="playoff-gp">(${playoffAvg.gp} game${playoffAvg.gp > 1 ? 's' : ''})</span></h2>
+    <div class="averages-grid playoff-averages">
+      <div class="avg-card"><div class="value">${playoffAvg.ppg}</div><div class="label">PPG</div></div>
+      <div class="avg-card"><div class="value">${playoffAvg.rpg}</div><div class="label">RPG</div></div>
+      <div class="avg-card"><div class="value">${playoffAvg.apg}</div><div class="label">APG</div></div>
+      <div class="avg-card"><div class="value">${playoffAvg.spg}</div><div class="label">SPG</div></div>
+      <div class="avg-card"><div class="value">${playoffAvg.bpg}</div><div class="label">BPG</div></div>
+      <div class="avg-card"><div class="value">${playoffAvg.fgPct}%</div><div class="label">FG%</div></div>
+      <div class="avg-card"><div class="value">${playoffAvg.tpPct}%</div><div class="label">3P%</div></div>
+      <div class="avg-card"><div class="value">${playoffAvg.ftPct}%</div><div class="label">FT%</div></div>
+    </div>
+    ` : ''}
 
     <h2 class="section-title">Game Log</h2>
     <div class="table-wrapper">

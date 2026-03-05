@@ -61,7 +61,7 @@ const OBA = {
   async getTeamRecord(teamId, season) {
     const games = await this.getGames(season);
     let wins = 0, losses = 0;
-    games.forEach(g => {
+    games.filter(g => !g.round).forEach(g => {
       if (g.homeTeam === teamId) {
         g.homeScore > g.awayScore ? wins++ : losses++;
       } else if (g.awayTeam === teamId) {
@@ -80,11 +80,13 @@ const OBA = {
       const allBoxScores = Object.values(g.boxScore).flat();
       const line = allBoxScores.find(b => b.playerId === playerId);
       if (line) {
-        stats.gp++;
-        Object.keys(stats).forEach(k => {
-          if (k !== 'gp') stats[k] += line[k] || 0;
-        });
-        gameLogs.push({ gameId: g.id, date: g.date, homeTeam: g.homeTeam, awayTeam: g.awayTeam, homeScore: g.homeScore, awayScore: g.awayScore, ...line });
+        if (!g.round) {
+          stats.gp++;
+          Object.keys(stats).forEach(k => {
+            if (k !== 'gp') stats[k] += line[k] || 0;
+          });
+        }
+        gameLogs.push({ gameId: g.id, date: g.date, round: g.round, homeTeam: g.homeTeam, awayTeam: g.awayTeam, homeScore: g.homeScore, awayScore: g.awayScore, ...line });
       }
     });
 

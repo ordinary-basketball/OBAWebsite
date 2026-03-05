@@ -85,6 +85,15 @@
     html += renderAllTeam('All-OBA First Team', awards.allOBA);
     html += renderAllTeam('All-OBA Defensive Team', awards.allDefense);
 
+    // Playoff awards
+    if (awards.finalsMvp || awards.playoffMvp) {
+      html += `<h2 class="awards-section-header">Playoff Awards</h2>`;
+      html += `<div class="awards-grid">`;
+      if (awards.finalsMvp) html += renderAward('Finals MVP', '\u{1F3C6}', awards.finalsMvp);
+      if (awards.playoffMvp) html += renderAward('Playoff MVP', '\u{1F31F}', awards.playoffMvp);
+      html += `</div>`;
+    }
+
   } catch (e) {
     html = `
       <div class="awards-grid">

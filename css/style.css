@@ -464,6 +464,20 @@ img { max-width: 100%; }
   color: var(--white);
 }
 
+.game-round {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  color: var(--white);
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
 .matchup-header .game-date {
   color: rgba(255,255,255,0.6);
   font-size: 0.95rem;
@@ -873,6 +887,131 @@ img { max-width: 100%; }
   cursor: pointer;
 }
 
+/* --- Schedule Section Headers --- */
+.schedule-section-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 32px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--border);
+  color: var(--black);
+}
+
+.schedule-section-header:first-child {
+  margin-top: 0;
+}
+
+.schedule-section-header.playoffs-header {
+  border-bottom-color: var(--red);
+  color: var(--red);
+}
+
+/* --- Playoff Game Row --- */
+.playoff-game {
+  border-left: 4px solid var(--red);
+  background: linear-gradient(90deg, rgba(196, 30, 58, 0.03) 0%, var(--white) 20%);
+}
+
+/* --- Round Badge --- */
+.round-badge {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-right: 12px;
+  white-space: nowrap;
+}
+
+.round-badge.round-play-in {
+  background: #e0e0e0;
+  color: #555;
+}
+
+.round-badge.round-semifinal {
+  background: var(--red);
+  color: #fff;
+}
+
+.round-badge.round-championship {
+  background: linear-gradient(135deg, #d4a017, #f0c040);
+  color: #1a1a1a;
+}
+
+/* --- Champion Banner --- */
+#champion-banner-home .champion-banner {
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+
+.champion-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 20px 28px;
+  background: linear-gradient(135deg, #fffbe6 0%, #fff8dc 50%, #fff4c2 100%);
+  border: 2px solid #d4a017;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(212, 160, 23, 0.15);
+}
+
+.champion-trophy {
+  font-size: 2.2rem;
+}
+
+.champion-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.champion-team {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.champion-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8B6914;
+}
+
+/* --- Playoff Averages --- */
+.playoff-gp {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.playoff-averages .avg-card {
+  border-left: 3px solid var(--red);
+}
+
+/* --- Awards Section Header --- */
+.awards-section-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 40px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--red);
+  color: var(--black);
+}
+
 /* --- Week Group --- */
 .week-group {
   margin-bottom: 24px;
@@ -1044,6 +1183,10 @@ img { max-width: 100%; }
 
   .game-date { min-width: auto; }
   .game-score { min-width: auto; text-align: center; }
+
+  .round-badge { margin-right: 0; margin-bottom: 4px; }
+  .champion-banner { flex-direction: column; text-align: center; padding: 16px; }
+  .champion-text { align-items: center; }
 
   .game-matchup .team-name { min-width: auto; }
 

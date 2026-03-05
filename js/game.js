@@ -66,6 +66,7 @@
 
   document.getElementById('game-content').innerHTML = `
     <div class="matchup-header">
+      ${game.round ? `<div class="game-round">${game.round}</div>` : ''}
       <div class="game-date">${OBA.formatDate(game.date)}</div>
       <div class="matchup-teams">
         <div class="matchup-team">

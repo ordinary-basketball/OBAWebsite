@@ -26,6 +26,8 @@
       <a href="photos.html" class="quick-link">Photos</a>
     </div>
 
+    <div id="champion-banner-home"></div>
+
     <section class="league-leaders">
       <h2 class="section-title">League Leaders</h2>
       <div class="leaders-grid" id="leaders-grid">
@@ -94,6 +96,22 @@
         renderLeaderList('Steals', 'spg', 'SPG') +
         renderLeaderList('Blocks', 'bpg', 'BPG') +
         renderLeaderList('Fantasy', 'fppg', 'FPPG');
+
+      // Champion banner for finished seasons
+      const champGame = games.find(g => g.round === 'Championship');
+      if (champGame) {
+        const winnerId = champGame.homeScore > champGame.awayScore ? champGame.homeTeam : champGame.awayTeam;
+        const winner = teamMap[winnerId];
+        const seasonLabel = OBA.currentSeason ? OBA.currentSeason.replace('season', 'Season ') : 'Season 1';
+        document.getElementById('champion-banner-home').innerHTML = `
+          <div class="champion-banner" style="border-color: ${winner.color}">
+            <div class="champion-trophy">&#127942;</div>
+            <div class="champion-text">
+              <span class="champion-team" style="color: ${winner.color}">${winner.name}</span>
+              <span class="champion-title">${seasonLabel} Champions</span>
+            </div>
+          </div>`;
+      }
 
       // Show last 6 games
       const recent = games.slice(-6).reverse();
