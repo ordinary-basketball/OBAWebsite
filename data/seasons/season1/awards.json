@@ -1,7 +1,13 @@
 {
-  "mvp": null,
-  "sixthMan": null,
-  "mip": null,
-  "allOBA": [],
-  "allDefense": []
+  "eligibilityNote": "Minimum 3 of 4 games played",
+  "mvp": { "playerId": "nathanp", "highlights": "34.3 PPG, 12.8 RPG, 3.3 SPG — dominated on both ends of the floor" },
+  "dpoy": { "playerId": "aronk", "highlights": "1.75 SPG, 11.0 RPG — dominant rebounder with active hands on the league's best defense" },
+  "sixthMan": { "playerId": "danielp", "highlights": "3.8 PPG, 2.5 RPG — reliable contributor off the bench every game" },
+  "allOBA": ["nathanp", "austini", "joshs", "aronk", "samkang"],
+  "allDefense": ["aronk", "benn", "jonh", "andrewc", "isaacs1"],
+  "funAwards": {
+    "bestCelebration": { "playerId": "ryanc" },
+    "bestTrashTalker": { "playerId": "timp" },
+    "mrHustle": { "playerId": "jobol" }
+  }
 }

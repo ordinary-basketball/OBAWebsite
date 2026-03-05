@@ -38,6 +38,11 @@ const OBA = {
     return this.fetchJSON(`data/seasons/${season}/photos.json`);
   },
 
+  async getPowerRankings(season) {
+    season = season || this.currentSeason;
+    return this.fetchJSON(`data/seasons/${season}/power-rankings.json`);
+  },
+
   async getTeam(teamId) {
     const teams = await this.getTeams();
     return teams.find(t => t.id === teamId);
@@ -116,9 +121,11 @@ const OBA = {
       { href: 'index.html', label: 'Home', id: 'home' },
       { href: 'schedule.html', label: 'Schedule', id: 'schedule' },
       { href: 'teams.html', label: 'Teams', id: 'teams' },
-      { href: 'awards.html', label: 'Awards', id: 'awards' },
-      { href: 'photos.html', label: 'Photos', id: 'photos' },
+      // { href: 'photos.html', label: 'Photos', id: 'photos' },
+      { href: 'power-rankings.html', label: 'Rankings', id: 'power-rankings' },
+      { href: 'predictions.html', label: 'Predictions', id: 'predictions' },
       { href: 'records.html', label: 'Records', id: 'records' },
+      { href: 'awards.html', label: 'Awards', id: 'awards' },
     ];
     const nav = document.getElementById('site-nav');
     if (!nav) return;

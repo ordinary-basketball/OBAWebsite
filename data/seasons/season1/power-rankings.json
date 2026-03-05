@@ -1,0 +1,37 @@
+{
+  "week": 5,
+  "date": "2025-04-27",
+  "title": "Playoff Preview",
+  "rankings": [
+    {
+      "rank": 1,
+      "teamId": "aron",
+      "record": "4-0",
+      "writeup": "A perfect regular season. Team Aron ran the table, capping it off with a 72-65 win over Sam in Week 5 where Aron Kim (28 pts, 11 reb, 3 stl) and Laurance Kim (29 pts, 5 stl) combined for 57 points. Aron Kim finishes the season averaging a double-double with 12.5 RPG while locking down on defense (1.75 SPG). Jonathan Chung elevated his game in Week 4 with a 20-point, 10-rebound double-double, and Laurance Kim was the league's most consistent scorer at 17.8 PPG. This team has no weaknesses — the best offense, the best defense, and the most balanced roster in the league."
+    },
+    {
+      "rank": 2,
+      "teamId": "nathan",
+      "record": "2-2",
+      "writeup": "Nathan Paik put up the most dominant individual season in OBA history — 34.3 PPG, 12.8 RPG, 3.3 SPG — but a .500 record tells the story of a one-man show. The losses to PJo (51-52) and Aron (49-62) exposed the team's reliance on Nathan. Ben Ngo (11.5 PPG) has been the only consistent second scorer, and his defensive energy earned him an All-Defensive nod. When Nathan dropped 42 and 17 boards against Sam, the team looked unstoppable. But without more help, this team's ceiling depends entirely on how far one man can carry them in the playoffs."
+    },
+    {
+      "rank": 3,
+      "teamId": "pjo",
+      "record": "2-2",
+      "writeup": "Team PJo finishes at .500 after a disappointing Week 5 loss to Jon (48-65) snapped a two-game win streak. Austin Im was the league's most electric scorer this season, averaging 26.7 PPG with a 31-point explosion in Week 4. Kanghee Lee has been a reliable two-way presence, and PJo anchored things as floor general. But the bookend losses to Aron (41-56) and Jon (48-65) raise questions about consistency. If Austin Im gets hot, this team can beat anyone — but they need the supporting cast to show up."
+    },
+    {
+      "rank": 4,
+      "teamId": "jon",
+      "record": "1-3",
+      "writeup": "Team Jon ended the regular season on a high note, dominating PJo 65-48 in Week 5 for their first win. Josh Sun led the charge with 21 points, 13 rebounds, 5 assists, and 5 steals — the kind of stat line that screams playoff performer. Andrew Cho has emerged as a rim protector, and Ryan Choi provides consistent perimeter scoring. The 0-3 start featured two heartbreakers (1-point loss to Nathan, 2-point loss to Aron), so this team knows how to compete. Momentum from the Week 5 blowout could make them a dangerous playoff opponent."
+    },
+    {
+      "rank": 5,
+      "teamId": "sam",
+      "record": "1-3",
+      "writeup": "Team Sam closes the regular season on a three-game losing streak after a promising Week 2 start. Matthew Paik's 44-point, 9-three-pointer masterpiece against Jon remains the single greatest individual performance of the season, but he couldn't sustain that magic. Sam Kang (14.3 PPG, 7.5 RPG) was the team's most consistent player, and Yubi Kim's 35-point, 14-rebound breakout game against Aron in Week 5 showed untapped potential. The scoring is there in bursts, but the consistency isn't — and heading into the playoffs on a skid is never ideal."
+    }
+  ]
+}

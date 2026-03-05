@@ -1,0 +1,36 @@
+{
+  "week": 2,
+  "date": "2026-03-01",
+  "rankings": [
+    {
+      "rank": 1,
+      "teamId": "nathan",
+      "record": "3-0",
+      "writeup": "Team Nathan is the clear frontrunner through two weeks, sitting as the only undefeated squad in the league. Nathan Paik is putting up monster double-double numbers (26.3 PPG, 11.7 RPG) and Austin Im has been a lethal perimeter threat, erupting for 30 points on 6-for-6 from three against Sean. Add in Ryan Choi's sharpshooting and Andrew Paik's rebounding, and this team has the deepest rotation in the OBA. Their 81-60 dismantling of Sean in Week 2 was the most dominant performance of the season so far."
+    },
+    {
+      "rank": 2,
+      "teamId": "sean",
+      "record": "1-1",
+      "writeup": "Team Sean showed two very different faces in the first two weeks. The Week 1 win over Matt was gritty — Sean Lee poured in 25 points and Christian Kim grabbed 15 rebounds to grind out a 55-50 victory. But the 21-point blowout loss to Nathan exposed some depth concerns. Christian Kim's 29-point, 10-rebound double-double in the loss was a silver lining, proving he can be a legitimate star. If Josh Paik can find his shooting stroke, this team has the pieces to compete with anyone."
+    },
+    {
+      "rank": 3,
+      "teamId": "aron",
+      "record": "1-1",
+      "writeup": "Team Aron bounced back from a tough Week 1 loss to Nathan with a convincing 57-43 win over PJo. The key? Aron Kim stepping up with a 13-point, 13-rebound double-double, while Jonathan Chung led the scoring with 16 points. Josh Sun remains the most versatile player on the roster — he does a little bit of everything with 4 steals and 2 blocks against PJo. The defense looked elite in Week 2, holding PJo to just 43 points. If they can sustain that intensity, they'll be dangerous come playoff time."
+    },
+    {
+      "rank": 4,
+      "teamId": "matt",
+      "record": "0-1",
+      "writeup": "It's hard to draw too many conclusions from one game, but Team Matt's 50-55 loss to Sean raised some questions about shot selection. Matt Paik went 5-for-21 from the field and the team shot poorly from three overall. The bright spot was David Kim, who was an efficient 5-for-7 with 10 points and 7 rebounds off the bench. Kanghee Lee showed flashes with 13 points and 7 boards. This team has talent — they just need to find their rhythm and get cleaner looks."
+    },
+    {
+      "rank": 5,
+      "teamId": "pjo",
+      "record": "0-2",
+      "writeup": "Team PJo has been competitive but can't seem to close games. The 67-68 heartbreaker against Nathan in Week 1 could have gone either way — Joseph Yoo dropped 22 points and PJo had a 21-point, 14-rebound double-double in a losing effort. But the Week 2 loss to Aron (43-57) was more concerning, as the offense sputtered despite Wonjin Jang's 17-point, 10-rebound outing. The talent is there with guys like Justin Ho and Joseph Yoo, but they need to find consistency and a way to finish close games."
+    }
+  ]
+}
