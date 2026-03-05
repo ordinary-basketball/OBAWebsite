@@ -2,7 +2,7 @@
   {
     "id": 1,
     "week": 1,
-    "date": "2026-01-18",
+    "date": "2025-03-30",
     "homeTeam": "pjo",
     "awayTeam": "aron",
     "homeScore": 41,
@@ -212,7 +212,7 @@
   {
     "id": 2,
     "week": 1,
-    "date": "2026-01-18",
+    "date": "2025-03-30",
     "homeTeam": "nathan",
     "awayTeam": "jon",
     "homeScore": 57,
@@ -422,7 +422,7 @@
   {
     "id": 3,
     "week": 2,
-    "date": "2026-01-25",
+    "date": "2025-04-06",
     "homeTeam": "nathan",
     "awayTeam": "pjo",
     "homeScore": 51,
@@ -677,7 +677,7 @@
   {
     "id": 4,
     "week": 2,
-    "date": "2026-01-25",
+    "date": "2025-04-06",
     "homeTeam": "jon",
     "awayTeam": "sam",
     "homeScore": 42,
@@ -917,7 +917,7 @@
   {
     "id": 5,
     "week": 3,
-    "date": "2026-02-01",
+    "date": "2025-04-13",
     "homeTeam": "aron",
     "awayTeam": "jon",
     "homeScore": 43,
@@ -1142,7 +1142,7 @@
   {
     "id": 6,
     "week": 3,
-    "date": "2026-02-01",
+    "date": "2025-04-13",
     "homeTeam": "sam",
     "awayTeam": "nathan",
     "homeScore": 50,
@@ -1352,7 +1352,7 @@
   {
     "id": 7,
     "week": 4,
-    "date": "2026-02-08",
+    "date": "2025-04-20",
     "homeTeam": "pjo",
     "awayTeam": "sam",
     "homeScore": 68,
@@ -1562,7 +1562,7 @@
   {
     "id": 8,
     "week": 4,
-    "date": "2026-02-08",
+    "date": "2025-04-20",
     "homeTeam": "aron",
     "awayTeam": "nathan",
     "homeScore": 62,
@@ -1772,7 +1772,7 @@
   {
     "id": 9,
     "week": 5,
-    "date": "2026-02-15",
+    "date": "2025-04-27",
     "homeTeam": "sam",
     "awayTeam": "aron",
     "homeScore": 65,
@@ -1967,7 +1967,7 @@
   {
     "id": 10,
     "week": 5,
-    "date": "2026-02-15",
+    "date": "2025-04-27",
     "homeTeam": "pjo",
     "awayTeam": "jon",
     "homeScore": 48,
