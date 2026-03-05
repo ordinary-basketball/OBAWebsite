@@ -999,6 +999,67 @@ img { max-width: 100%; }
   border-left: 3px solid var(--red);
 }
 
+/* --- Career Highs --- */
+.career-highs-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.career-high-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.career-high-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-color: var(--red);
+}
+
+.career-high-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--red);
+}
+
+.career-high-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.career-high-meta {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* --- Season-by-Season Table --- */
+.season-by-season {
+  font-size: 0.9rem;
+}
+
+.season-by-season .current-season-row {
+  background: rgba(196, 30, 58, 0.06);
+  font-weight: 600;
+}
+
 /* --- Awards Section Header --- */
 .awards-section-header {
   font-family: 'Montserrat', sans-serif;
@@ -1184,6 +1245,7 @@ img { max-width: 100%; }
   .game-date { min-width: auto; }
   .game-score { min-width: auto; text-align: center; }
 
+  .career-highs-grid { grid-template-columns: repeat(3, 1fr); }
   .round-badge { margin-right: 0; margin-bottom: 4px; }
   .champion-banner { flex-direction: column; text-align: center; padding: 16px; }
   .champion-text { align-items: center; }

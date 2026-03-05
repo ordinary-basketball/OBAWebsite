@@ -105,6 +105,12 @@ const OBA = {
       fgPct: totals.fga ? (totals.fgm / totals.fga * 100).toFixed(1) : '0.0',
       tpPct: totals.tpa ? (totals.tpm / totals.tpa * 100).toFixed(1) : '0.0',
       ftPct: totals.fta ? (totals.ftm / totals.fta * 100).toFixed(1) : '0.0',
+      fgmpg: (totals.fgm / gp).toFixed(1),
+      fgapg: (totals.fga / gp).toFixed(1),
+      tpmpg: (totals.tpm / gp).toFixed(1),
+      tpapg: (totals.tpa / gp).toFixed(1),
+      ftmpg: (totals.ftm / gp).toFixed(1),
+      ftapg: (totals.fta / gp).toFixed(1),
     };
   },
 

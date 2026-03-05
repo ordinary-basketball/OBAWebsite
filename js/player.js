@@ -31,6 +31,48 @@
     playoffAvg.gp = pTotals.gp;
   }
 
+  // Gather stats across all seasons
+  const seasonRows = [];
+  const allLogs = [];
+  for (const s of OBA.seasons) {
+    try {
+      const { totals: sTotals, gameLogs: sLogs } = await OBA.getPlayerSeasonStats(playerId, s);
+      sLogs.forEach(g => allLogs.push({ ...g, season: s }));
+      if (sTotals.gp > 0) {
+        const sAvg = OBA.calcAverages(sTotals);
+        let sTeamName = '';
+        try {
+          const sPlayers = await OBA.getPlayers(s);
+          const sPlayer = sPlayers.find(p => p.id === playerId);
+          if (sPlayer) {
+            const sTeams = await OBA.getTeams(s);
+            const sTeam = sTeams.find(t => t.id === sPlayer.teamId);
+            if (sTeam) sTeamName = sTeam.name;
+          }
+        } catch(e) {}
+        seasonRows.push({ season: s, label: OBA.seasonLabels[s] || s, team: sTeamName, gp: sTotals.gp, avg: sAvg });
+      }
+    } catch(e) {}
+  }
+
+  // Compute career highs from all game logs
+  const highCategories = [
+    { key: 'pts', label: 'PTS' },
+    { key: 'reb', label: 'REB' },
+    { key: 'ast', label: 'AST' },
+    { key: 'stl', label: 'STL' },
+    { key: 'blk', label: 'BLK' },
+    { key: 'tpm', label: '3PM' },
+  ];
+  const careerHighs = highCategories.map(cat => {
+    let best = null;
+    allLogs.forEach(g => {
+      const val = g[cat.key] || 0;
+      if (!best || val > best.val) best = { val, game: g };
+    });
+    return { ...cat, best };
+  }).filter(h => h.best && h.best.val > 0);
+
   document.title = `${player.name} - OBA`;
 
   const initials = player.name.split(' ').map(n => n[0]).join('');
@@ -71,6 +113,42 @@
       <div class="avg-card"><div class="value">${playoffAvg.fgPct}%</div><div class="label">FG%</div></div>
       <div class="avg-card"><div class="value">${playoffAvg.tpPct}%</div><div class="label">3P%</div></div>
       <div class="avg-card"><div class="value">${playoffAvg.ftPct}%</div><div class="label">FT%</div></div>
+    </div>
+    ` : ''}
+
+    ${seasonRows.length > 1 ? `
+    <h2 class="section-title">Season-by-Season</h2>
+    <div class="table-wrapper">
+      <table class="stats-table season-by-season">
+        <thead>
+          <tr>
+            <th>Season</th><th>Team</th><th>GP</th><th>PPG</th><th>RPG</th><th>APG</th><th>SPG</th><th>BPG</th><th>FG</th><th>FG%</th><th>3PT</th><th>3P%</th><th>FT</th><th>FT%</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${seasonRows.map(r => `<tr class="${r.season === OBA.currentSeason ? 'current-season-row' : ''}">
+            <td>${r.label}</td><td>${r.team}</td><td>${r.gp}</td>
+            <td>${r.avg.ppg}</td><td>${r.avg.rpg}</td><td>${r.avg.apg}</td>
+            <td>${r.avg.spg}</td><td>${r.avg.bpg}</td>
+            <td>${r.avg.fgmpg}/${r.avg.fgapg}</td><td>${r.avg.fgPct}%</td><td>${r.avg.tpmpg}/${r.avg.tpapg}</td><td>${r.avg.tpPct}%</td><td>${r.avg.ftmpg}/${r.avg.ftapg}</td><td>${r.avg.ftPct}%</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+    ` : ''}
+
+    ${careerHighs.length > 0 ? `
+    <h2 class="section-title">Career Highs</h2>
+    <div class="career-highs-grid">
+      ${careerHighs.map(h => {
+        const g = h.best.game;
+        const oppId = g.homeTeam === player.teamId ? g.awayTeam : g.homeTeam;
+        return `<a href="game.html?id=${g.gameId}" class="career-high-item">
+          <span class="career-high-value">${h.best.val}</span>
+          <span class="career-high-label">${h.label}</span>
+          <span class="career-high-meta">vs ${oppId} &middot; ${OBA.formatDate(g.date)}</span>
+        </a>`;
+      }).join('')}
     </div>
     ` : ''}
 
