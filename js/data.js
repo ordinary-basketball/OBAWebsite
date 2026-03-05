@@ -118,6 +118,7 @@ const OBA = {
       { href: 'teams.html', label: 'Teams', id: 'teams' },
       { href: 'awards.html', label: 'Awards', id: 'awards' },
       { href: 'photos.html', label: 'Photos', id: 'photos' },
+      { href: 'records.html', label: 'Records', id: 'records' },
     ];
     const nav = document.getElementById('site-nav');
     if (!nav) return;

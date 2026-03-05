@@ -1048,5 +1048,25 @@ img { max-width: 100%; }
   .teams-grid { grid-template-columns: 1fr; }
   .awards-grid { grid-template-columns: 1fr; }
   .leaders-grid { grid-template-columns: repeat(2, 1fr); }
+  .records-grid { grid-template-columns: repeat(2, 1fr); }
   .photo-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+  .record-card .leader-item { padding: 16px; }
+}
+
+/* Record Cards */
+a.record-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+a.record-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.record-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
 }

@@ -3,12 +3,13 @@
   OBA.renderFooter();
 
   const gameId = parseInt(OBA.getParam('id'));
+  const seasonParam = OBA.getParam('season');
   if (!gameId) {
     document.getElementById('game-content').innerHTML = '<p class="loading">Game not found.</p>';
     return;
   }
 
-  const [games, teams, players] = await Promise.all([OBA.getGames(), OBA.getTeams(), OBA.getPlayers()]);
+  const [games, teams, players] = await Promise.all([OBA.getGames(seasonParam), OBA.getTeams(seasonParam), OBA.getPlayers(seasonParam)]);
   const game = games.find(g => g.id === gameId);
   if (!game) {
     document.getElementById('game-content').innerHTML = '<p class="loading">Game not found.</p>';
