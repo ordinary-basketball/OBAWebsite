@@ -27,10 +27,15 @@
   function renderBoxScore(teamId, boxData) {
     const team = teamMap[teamId];
     boxData.sort((a, b) => b.pts - a.pts);
-    const totals = { pts: 0, reb: 0, ast: 0, stl: 0, blk: 0, to: 0, fgm: 0, fga: 0, tpm: 0, tpa: 0, ftm: 0, fta: 0 };
+    const hasOrebDreb = boxData.some(b => b.oreb !== undefined);
+    const totals = { pts: 0, reb: 0, oreb: 0, dreb: 0, ast: 0, stl: 0, blk: 0, to: 0, fgm: 0, fga: 0, tpm: 0, tpa: 0, ftm: 0, fta: 0 };
     boxData.forEach(b => {
       Object.keys(totals).forEach(k => totals[k] += b[k] || 0);
     });
+
+    const rebHeaders = hasOrebDreb ? '<th>OREB</th><th>DREB</th><th>REB</th>' : '<th>REB</th>';
+    const rebCells = b => hasOrebDreb ? `<td>${b.oreb || 0}</td><td>${b.dreb || 0}</td><td>${b.reb}</td>` : `<td>${b.reb}</td>`;
+    const rebTotals = hasOrebDreb ? `<td>${totals.oreb}</td><td>${totals.dreb}</td><td>${totals.reb}</td>` : `<td>${totals.reb}</td>`;
 
     return `
       <div class="box-score-section">
@@ -39,7 +44,7 @@
           <table class="stats-table">
             <thead>
               <tr>
-                <th>Player</th><th>PTS</th><th>REB</th><th>AST</th><th>STL</th><th>BLK</th><th>TO</th><th>FG</th><th>3PT</th><th>FT</th>
+                <th>Player</th><th>PTS</th>${rebHeaders}<th>AST</th><th>STL</th><th>BLK</th><th>TO</th><th>FG</th><th>3PT</th><th>FT</th>
               </tr>
             </thead>
             <tbody>
@@ -47,14 +52,14 @@
                 const p = playerMap[b.playerId];
                 return `<tr>
                   <td><a href="player.html?id=${b.playerId}">${p ? p.name : b.playerId}</a></td>
-                  <td>${b.pts}</td><td>${b.reb}</td><td>${b.ast}</td>
+                  <td>${b.pts}</td>${rebCells(b)}<td>${b.ast}</td>
                   <td>${b.stl}</td><td>${b.blk}</td><td>${b.to}</td>
                   <td>${b.fgm}-${b.fga}</td><td>${b.tpm}-${b.tpa}</td><td>${b.ftm}-${b.fta}</td>
                 </tr>`;
               }).join('')}
               <tr class="totals-row">
                 <td>TOTALS</td>
-                <td>${totals.pts}</td><td>${totals.reb}</td><td>${totals.ast}</td>
+                <td>${totals.pts}</td>${rebTotals}<td>${totals.ast}</td>
                 <td>${totals.stl}</td><td>${totals.blk}</td><td>${totals.to}</td>
                 <td>${totals.fgm}-${totals.fga}</td><td>${totals.tpm}-${totals.tpa}</td><td>${totals.ftm}-${totals.fta}</td>
               </tr>
