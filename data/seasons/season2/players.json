@@ -8,6 +8,7 @@
   { "id": "jobol",       "name": "Jobo Lee",        "teamId": "nathan", "position": "G/F", "height": "5'8\"" },
   { "id": "christianc",  "name": "Christian Chang",  "teamId": "nathan", "position": "G", "height": "5'8\"" },
   { "id": "pdavid",      "name": "PDavid",          "teamId": "nathan", "position": "F",  "height": "5'10\"" },
+  { "id": "isaach",      "name": "Isaac Hong",      "teamId": "nathan", "position": "G",  "height": "5'7\"" },
 
   { "id": "aronk",       "name": "Aron Kim",        "teamId": "aron",   "position": "F/C", "height": "6'2\"" },
   { "id": "jonathanc",   "name": "Jonathan Chung",  "teamId": "aron",   "position": "G/F", "height": "6'0\"" },

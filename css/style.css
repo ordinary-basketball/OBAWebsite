@@ -1354,6 +1354,30 @@ a.record-card:hover {
   border: 1px solid var(--border);
 }
 
+.ranking-stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.ranking-stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+}
+
+.ranking-stat-label {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.ranking-stat-value {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--black);
+}
+
 .ranking-writeup {
   font-size: 0.95rem;
   line-height: 1.6;

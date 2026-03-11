@@ -25,6 +25,11 @@
               <a href="team.html?id=${r.teamId}" class="ranking-team" style="color: ${color}">${name}</a>
               <span class="ranking-record">${r.record}</span>
             </div>
+            ${r.stats ? `<div class="ranking-stats">
+              <span class="ranking-stat"><span class="ranking-stat-label">FG%</span> <span class="ranking-stat-value">${r.stats.fgPct}%</span></span>
+              <span class="ranking-stat"><span class="ranking-stat-label">3PT%</span> <span class="ranking-stat-value">${r.stats.tpPct}%</span></span>
+              <span class="ranking-stat"><span class="ranking-stat-label">FT%</span> <span class="ranking-stat-value">${r.stats.ftPct}%</span></span>
+            </div>` : ''}
             <p class="ranking-writeup">${r.writeup}</p>
           </div>`;
       }).join('')}
