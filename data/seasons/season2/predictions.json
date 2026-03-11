@@ -1,0 +1,38 @@
+{
+  "week": 4,
+  "date": "2026-03-15",
+  "matchups": [
+    {
+      "homeTeam": "nathan",
+      "awayTeam": "matt",
+      "props": [
+        { "playerId": "nathanp",     "line": 26.5, "stat": "pts" },
+        { "playerId": "austini",     "line": 23.5, "stat": "pts" },
+        { "playerId": "ryanc",       "line": 12.5, "stat": "pts" },
+        { "playerId": "andrewp",     "line": 6.5,  "stat": "pts" },
+        { "playerId": "ericl",       "line": 2.5,  "stat": "pts" },
+        { "playerId": "christianc",  "line": 1.5,  "stat": "pts" },
+        { "playerId": "mattp",       "line": 20.5, "stat": "pts" },
+        { "playerId": "kangheel",    "line": 10.5, "stat": "pts" },
+        { "playerId": "chrish",      "line": 7.5,  "stat": "pts" },
+        { "playerId": "davidk",      "line": 6.5,  "stat": "pts" },
+        { "playerId": "benn",        "line": 5.5,  "stat": "pts" }
+      ]
+    },
+    {
+      "homeTeam": "sean",
+      "awayTeam": "aron",
+      "props": [
+        { "playerId": "seanl",       "line": 21.5, "stat": "pts" },
+        { "playerId": "christiank",  "line": 21.5, "stat": "pts" },
+        { "playerId": "joshp",       "line": 6.5,  "stat": "pts" },
+        { "playerId": "justinp",     "line": 4.5,  "stat": "pts" },
+        { "playerId": "joshs",       "line": 17.5, "stat": "pts" },
+        { "playerId": "jonathanc",   "line": 13.5, "stat": "pts" },
+        { "playerId": "brandonk",    "line": 11.5, "stat": "pts" },
+        { "playerId": "jonh",        "line": 7.5,  "stat": "pts" },
+        { "playerId": "aronk",       "line": 6.5,  "stat": "pts" }
+      ]
+    }
+  ]
+}

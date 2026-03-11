@@ -689,6 +689,72 @@ img { max-width: 100%; }
   font-style: italic;
 }
 
+.frontrunners-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.frontrunners-list {
+  list-style: none;
+  counter-reset: rank;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.frontrunners-list li {
+  counter-increment: rank;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.frontrunners-list li:last-child {
+  border-bottom: none;
+}
+
+.frontrunners-list li::before {
+  content: counter(rank) ".";
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--black);
+  min-width: 24px;
+}
+
+.frontrunner-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.frontrunner-name:hover {
+  text-decoration: underline;
+}
+
+.frontrunner-team {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.frontrunner-stats {
+  width: 100%;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+  padding-left: 30px;
+}
+
 .awards-eligibility {
   text-align: center;
   font-size: 0.8rem;
@@ -1269,7 +1335,9 @@ img { max-width: 100%; }
   .ranking-rank { font-size: 1.5rem; min-width: 30px; }
   .ranking-team { font-size: 1.1rem; }
 
-  .predictions-placeholder { padding: 40px 20px; }
+  .props-grid { grid-template-columns: 1fr; }
+  .matchup-team-name { font-size: 1rem; }
+  .matchup-header { padding: 10px 16px; gap: 10px; }
 }
 
 /* Record Cards */
@@ -1394,31 +1462,131 @@ a.record-card:hover {
 
 /* --- Predictions --- */
 .predictions-container {
-  max-width: 700px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
-.predictions-placeholder {
+.predictions-meta {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.matchup-section {
+  margin-bottom: 40px;
+}
+
+.matchup-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: var(--black);
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.matchup-team-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.matchup-vs {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #999;
+}
+
+.props-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.team-props-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+
+.prop-card {
   background: var(--white);
-  border: 2px dashed var(--border);
-  border-radius: 12px;
-  padding: 60px 30px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.prop-player-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.prop-player-name:hover {
+  text-decoration: underline;
+}
+
+.prop-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 6px 0 10px;
+}
+
+.prop-line-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.prop-line-value {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--black);
+  min-width: 60px;
   text-align: center;
 }
 
-.predictions-icon {
-  font-size: 3rem;
-  margin-bottom: 16px;
-}
-
-.predictions-placeholder h2 {
+.prop-side {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
-  color: var(--black);
-  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 4px;
 }
 
-.predictions-placeholder p {
+.prop-side.over {
+  background: #e6f9e6;
+  color: #1a7a1a;
+}
+
+.prop-side.under {
+  background: #fde8e8;
+  color: #b91c1c;
+}
+
+.predictions-attribution {
+  text-align: center;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  font-size: 1rem;
+  font-style: italic;
+  margin-top: 24px;
 }

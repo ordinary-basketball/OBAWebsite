@@ -43,6 +43,11 @@ const OBA = {
     return this.fetchJSON(`data/seasons/${season}/power-rankings.json`);
   },
 
+  async getPredictions(season) {
+    season = season || this.currentSeason;
+    return this.fetchJSON(`data/seasons/${season}/predictions.json`);
+  },
+
   async getTeam(teamId) {
     const teams = await this.getTeams();
     return teams.find(t => t.id === teamId);
