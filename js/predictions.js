@@ -36,6 +36,24 @@
           <span class="matchup-vs">vs</span>
           <span class="matchup-team-name" style="color:${away.color}">${away.name}</span>
         </div>
+        ${matchup.spread ? (() => {
+          const fav = teamMap[matchup.spread.favorite];
+          const dog = fav.id === matchup.homeTeam ? away : home;
+          return `<div class="spread-card">
+            <div class="spread-header">Game Spread</div>
+            <div class="spread-picks">
+              <div class="spread-pick">
+                <span class="spread-pick-team">${fav.name}</span>
+                <span class="spread-pick-line">-${matchup.spread.line}</span>
+              </div>
+              <div class="spread-pick">
+                <span class="spread-pick-team">${dog.name}</span>
+                <span class="spread-pick-line">+${matchup.spread.line}</span>
+              </div>
+            </div>
+          </div>`;
+        })() : ''}
+        <div class="props-section-label">Player Props</div>
         <div class="props-grid">
           <div class="team-props">
             <h3 class="team-props-title" style="color:${home.color}">${home.name}</h3>

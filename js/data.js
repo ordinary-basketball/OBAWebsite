@@ -1,7 +1,7 @@
 // OBA Data Loading Utilities
 const OBA = {
-  seasons: ['season1', 'season2'],
-  seasonLabels: { season1: 'Season 1', season2: 'Season 2' },
+  seasons: ['exhibition', 'season1', 'season2'],
+  seasonLabels: { exhibition: 'Exhibition', season1: 'Season 1', season2: 'Season 2' },
   currentSeason: localStorage.getItem('obaSeason') || 'season2',
   cache: {},
 

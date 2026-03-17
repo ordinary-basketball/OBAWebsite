@@ -1,0 +1,9 @@
+[
+  { "id": "nathanp", "name": "Nathan Paik", "teamId": "ordinary", "position": "G/F", "height": "6'2\"" },
+  { "id": "mattp", "name": "Matt Paik", "teamId": "ordinary", "position": "G", "height": "5'10\"" },
+  { "id": "seanl", "name": "Sean Lee", "teamId": "ordinary", "position": "G/F", "height": "6'1\"" },
+  { "id": "aronk", "name": "Aron Kim", "teamId": "ordinary", "position": "F/C", "height": "6'2\"" },
+  { "id": "kangheel", "name": "Kanghee Lee", "teamId": "ordinary", "position": "G/F", "height": "5'10\"" },
+  { "id": "andrewp", "name": "Andrew Paik", "teamId": "ordinary", "position": "G", "height": "5'10\"" },
+  { "id": "christiank", "name": "Christian Kim", "teamId": "ordinary", "position": "C", "height": "6'5\"" }
+]

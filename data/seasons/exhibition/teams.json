@@ -1,0 +1,4 @@
+[
+  { "id": "ordinary", "name": "Ordinary", "color": "#1D1D2B", "colorSecondary": "#374151" },
+  { "id": "newlife", "name": "New Life", "color": "#2563EB", "colorSecondary": "#1E40AF" }
+]

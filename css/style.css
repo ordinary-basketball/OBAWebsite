@@ -1503,6 +1503,77 @@ a.record-card:hover {
   color: #999;
 }
 
+.spread-card {
+  margin: 0 auto 32px;
+  max-width: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.spread-header {
+  background: var(--surface-dark);
+  color: var(--text-muted);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 8px;
+}
+
+.spread-picks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.spread-pick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 12px;
+  background: var(--white);
+  cursor: pointer;
+  transition: background 0.15s;
+  border-right: 1px solid var(--border);
+}
+
+.spread-pick:last-child {
+  border-right: none;
+}
+
+.spread-pick:hover {
+  background: #f0f0f0;
+}
+
+.spread-pick-team {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--black);
+}
+
+.spread-pick-line {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--black);
+}
+
+.props-section-label {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
 .props-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

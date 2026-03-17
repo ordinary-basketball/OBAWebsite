@@ -31,10 +31,11 @@
     playoffAvg.gp = pTotals.gp;
   }
 
-  // Gather stats across all seasons
+  // Gather stats across all seasons (exclude exhibition from records)
+  const recordSeasons = OBA.seasons.filter(s => s !== 'exhibition');
   const seasonRows = [];
   const allLogs = [];
-  for (const s of OBA.seasons) {
+  for (const s of recordSeasons) {
     try {
       const { totals: sTotals, gameLogs: sLogs } = await OBA.getPlayerSeasonStats(playerId, s);
       sLogs.forEach(g => allLogs.push({ ...g, season: s }));

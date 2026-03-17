@@ -2,8 +2,9 @@
   OBA.renderNav('records');
   OBA.renderFooter();
 
-  // Load data from all seasons
-  const seasonData = await Promise.all(OBA.seasons.map(async season => {
+  // Load data from all seasons (exclude exhibition)
+  const recordSeasons = OBA.seasons.filter(s => s !== 'exhibition');
+  const seasonData = await Promise.all(recordSeasons.map(async season => {
     const [games, players, teams] = await Promise.all([
       OBA.getGames(season),
       OBA.getPlayers(season),

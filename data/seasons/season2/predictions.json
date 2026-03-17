@@ -5,6 +5,7 @@
     {
       "homeTeam": "nathan",
       "awayTeam": "matt",
+      "spread": { "favorite": "nathan", "line": 1.5 },
       "props": [
         { "playerId": "nathanp",     "line": 26.5, "stat": "pts" },
         { "playerId": "austini",     "line": 23.5, "stat": "pts" },
@@ -22,6 +23,7 @@
     {
       "homeTeam": "sean",
       "awayTeam": "aron",
+      "spread": { "favorite": "aron", "line": 4.5 },
       "props": [
         { "playerId": "seanl",       "line": 21.5, "stat": "pts" },
         { "playerId": "christiank",  "line": 21.5, "stat": "pts" },

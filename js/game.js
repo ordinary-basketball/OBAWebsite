@@ -86,7 +86,7 @@
       </div>
     </div>
     ${game.videoUrl ? `<div class="game-video-link"><a href="${game.videoUrl}" target="_blank" rel="noopener">Watch Game</a></div>` : ''}
-    ${renderBoxScore(game.homeTeam, game.boxScore[game.homeTeam])}
-    ${renderBoxScore(game.awayTeam, game.boxScore[game.awayTeam])}
+    ${game.boxScore[game.homeTeam]?.length ? renderBoxScore(game.homeTeam, game.boxScore[game.homeTeam]) : ''}
+    ${game.boxScore[game.awayTeam]?.length ? renderBoxScore(game.awayTeam, game.boxScore[game.awayTeam]) : ''}
   `;
 })();

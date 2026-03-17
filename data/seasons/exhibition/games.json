@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "week": 1,
+    "date": "2026-03-16",
+    "homeTeam": "ordinary",
+    "awayTeam": "newlife",
+    "homeScore": 131,
+    "awayScore": 101,
+    "boxScore": {
+      "ordinary": [
+        { "playerId": "mattp", "pts": 44, "reb": 7, "ast": 7, "stl": 0, "blk": 0, "to": 2, "fgm": 17, "fga": 25, "tpm": 7, "tpa": 11, "ftm": 3, "fta": 3 },
+        { "playerId": "nathanp", "pts": 33, "reb": 13, "ast": 7, "stl": 1, "blk": 1, "to": 2, "fgm": 13, "fga": 23, "tpm": 7, "tpa": 14, "ftm": 0, "fta": 0 },
+        { "playerId": "seanl", "pts": 22, "reb": 11, "ast": 9, "stl": 0, "blk": 2, "to": 3, "fgm": 9, "fga": 15, "tpm": 3, "tpa": 7, "ftm": 1, "fta": 2 },
+        { "playerId": "christiank", "pts": 14, "reb": 11, "ast": 2, "stl": 1, "blk": 0, "to": 0, "fgm": 6, "fga": 12, "tpm": 0, "tpa": 1, "ftm": 2, "fta": 2 },
+        { "playerId": "aronk", "pts": 10, "reb": 6, "ast": 0, "stl": 1, "blk": 0, "to": 1, "fgm": 5, "fga": 10, "tpm": 0, "tpa": 0, "ftm": 0, "fta": 1 },
+        { "playerId": "kangheel", "pts": 5, "reb": 10, "ast": 4, "stl": 0, "blk": 0, "to": 1, "fgm": 2, "fga": 7, "tpm": 0, "tpa": 4, "ftm": 1, "fta": 2 },
+        { "playerId": "andrewp", "pts": 3, "reb": 0, "ast": 0, "stl": 0, "blk": 0, "to": 0, "fgm": 1, "fga": 4, "tpm": 1, "tpa": 4, "ftm": 0, "fta": 0 }
+      ],
+      "newlife": []
+    }
+  }
+]
