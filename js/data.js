@@ -82,16 +82,19 @@ const OBA = {
     const gameLogs = [];
 
     games.forEach(g => {
-      const allBoxScores = Object.values(g.boxScore).flat();
-      const line = allBoxScores.find(b => b.playerId === playerId);
+      let line = null, forTeam = null;
+      for (const [tid, box] of Object.entries(g.boxScore)) {
+        const found = box.find(b => b.playerId === playerId);
+        if (found) { line = found; forTeam = tid; break; }
+      }
       if (line) {
-        if (!g.round) {
+        if (!g.round && !line.fillin) {
           stats.gp++;
           Object.keys(stats).forEach(k => {
             if (k !== 'gp') stats[k] += line[k] || 0;
           });
         }
-        gameLogs.push({ gameId: g.id, date: g.date, round: g.round, homeTeam: g.homeTeam, awayTeam: g.awayTeam, homeScore: g.homeScore, awayScore: g.awayScore, ...line });
+        gameLogs.push({ gameId: g.id, date: g.date, round: g.round, fillin: line.fillin, forTeam, homeTeam: g.homeTeam, awayTeam: g.awayTeam, homeScore: g.homeScore, awayScore: g.awayScore, ...line });
       }
     });
 

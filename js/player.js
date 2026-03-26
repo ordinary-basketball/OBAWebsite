@@ -143,7 +143,8 @@
     <div class="career-highs-grid">
       ${careerHighs.map(h => {
         const g = h.best.game;
-        const oppId = g.homeTeam === player.teamId ? g.awayTeam : g.homeTeam;
+        const myTeam = g.forTeam || player.teamId;
+        const oppId = g.homeTeam === myTeam ? g.awayTeam : g.homeTeam;
         return `<a href="game.html?id=${g.gameId}" class="career-high-item">
           <span class="career-high-value">${h.best.val}</span>
           <span class="career-high-label">${h.label}</span>
@@ -163,14 +164,16 @@
         </thead>
         <tbody>
           ${gameLogs.map(g => {
-            const isHome = g.homeTeam === player.teamId;
+            const myTeam = g.forTeam || player.teamId;
+            const isHome = g.homeTeam === myTeam;
             const oppId = isHome ? g.awayTeam : g.homeTeam;
             const won = isHome ? g.homeScore > g.awayScore : g.awayScore > g.homeScore;
             const myScore = isHome ? g.homeScore : g.awayScore;
             const oppScore = isHome ? g.awayScore : g.homeScore;
+            const fillinTag = g.fillin ? ' <span style="font-size:0.75em;color:#888">(fill-in)</span>' : '';
             return `<tr>
               <td><a href="game.html?id=${g.gameId}">${OBA.formatDate(g.date)}</a></td>
-              <td>${isHome ? 'vs' : '@'} ${oppId}</td>
+              <td>${isHome ? 'vs' : '@'} ${oppId}${fillinTag}</td>
               <td style="color:${won ? 'green' : 'red'}">${won ? 'W' : 'L'} ${myScore}-${oppScore}</td>
               <td>${g.pts}</td><td>${g.reb}</td><td>${g.ast}</td>
               <td>${g.stl}</td><td>${g.blk}</td><td>${g.to}</td>
