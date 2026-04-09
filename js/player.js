@@ -167,14 +167,15 @@
             const myTeam = g.forTeam || player.teamId;
             const isHome = g.homeTeam === myTeam;
             const oppId = isHome ? g.awayTeam : g.homeTeam;
-            const won = isHome ? g.homeScore > g.awayScore : g.awayScore > g.homeScore;
             const myScore = isHome ? g.homeScore : g.awayScore;
             const oppScore = isHome ? g.awayScore : g.homeScore;
+            const result = myScore > oppScore ? 'W' : myScore < oppScore ? 'L' : 'D';
+            const resultColor = result === 'W' ? 'green' : result === 'L' ? 'red' : '#888';
             const fillinTag = g.fillin ? ' <span style="font-size:0.75em;color:#888">(fill-in)</span>' : '';
             return `<tr>
               <td><a href="game.html?id=${g.gameId}">${OBA.formatDate(g.date)}</a></td>
               <td>${isHome ? 'vs' : '@'} ${oppId}${fillinTag}</td>
-              <td style="color:${won ? 'green' : 'red'}">${won ? 'W' : 'L'} ${myScore}-${oppScore}</td>
+              <td style="color:${resultColor}">${result} ${myScore}-${oppScore}</td>
               <td>${g.pts}</td><td>${g.reb}</td><td>${g.ast}</td>
               <td>${g.stl}</td><td>${g.blk}</td><td>${g.to}</td>
               <td>${g.fgm}-${g.fga}</td><td>${g.tpm}-${g.tpa}</td><td>${g.ftm}-${g.fta}</td>

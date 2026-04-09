@@ -13,7 +13,7 @@
   const playerStats = {};
   const teamStats = {};
   teams.forEach(t => {
-    teamStats[t.id] = { wins: 0, losses: 0, gp: 0, ptsFor: 0, ptsAgainst: 0 };
+    teamStats[t.id] = { wins: 0, losses: 0, draws: 0, gp: 0, ptsFor: 0, ptsAgainst: 0 };
   });
 
   games.filter(g => !g.round).forEach(g => {
@@ -26,7 +26,8 @@
       teamStats[tid].ptsFor += pf;
       teamStats[tid].ptsAgainst += pa;
       if (pf > pa) teamStats[tid].wins++;
-      else teamStats[tid].losses++;
+      else if (pf < pa) teamStats[tid].losses++;
+      else teamStats[tid].draws++;
     });
 
     Object.values(g.boxScore).flat().forEach(line => {
@@ -71,7 +72,7 @@
     return eligible.map(pid => {
       const s = playerStats[pid];
       const ts = teamStats[playerMap[pid].teamId];
-      const winPct = ts.gp > 0 ? ts.wins / ts.gp : 0.5;
+      const winPct = ts.gp > 0 ? (ts.wins + 0.5 * ts.draws) / ts.gp : 0.5;
       const score = s.gameScore * (1 + 0.3 * (winPct - 0.5));
       return { playerId: pid, score, stats: `${s.ppg.toFixed(1)} PPG, ${s.rpg.toFixed(1)} RPG, ${s.apg.toFixed(1)} APG` };
     }).sort((a, b) => b.score - a.score).slice(0, 5);

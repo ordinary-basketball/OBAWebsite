@@ -65,15 +65,15 @@ const OBA = {
 
   async getTeamRecord(teamId, season) {
     const games = await this.getGames(season);
-    let wins = 0, losses = 0;
+    let wins = 0, losses = 0, draws = 0;
     games.filter(g => !g.round).forEach(g => {
       if (g.homeTeam === teamId) {
-        g.homeScore > g.awayScore ? wins++ : losses++;
+        g.homeScore > g.awayScore ? wins++ : g.homeScore < g.awayScore ? losses++ : draws++;
       } else if (g.awayTeam === teamId) {
-        g.awayScore > g.homeScore ? wins++ : losses++;
+        g.awayScore > g.homeScore ? wins++ : g.awayScore < g.homeScore ? losses++ : draws++;
       }
     });
-    return { wins, losses };
+    return { wins, losses, draws };
   },
 
   async getPlayerSeasonStats(playerId, season) {

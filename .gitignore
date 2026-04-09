@@ -1,0 +1,8 @@
+# OS files
+.DS_Store
+data/.DS_Store
+data/seasons/.DS_Store
+
+# Personal analytics dashboard (local only)
+analytics.html
+js/analytics.js

@@ -1,41 +1,41 @@
 {
-  "week": 4,
-  "date": "2026-03-15",
+  "week": 5,
+  "date": "2026-03-30",
   "rankings": [
     {
       "rank": 1,
       "teamId": "sean",
-      "record": "3-1",
+      "record": "3-1-1",
       "stats": { "fgPct": 42.3, "tpPct": 24.1, "ftPct": 63.2 },
-      "writeup": "Team Sean takes the top spot after their biggest win of the season — a 67-62 victory over Aron that featured dominant performances up and down the roster. Sean Lee went off for 29 points on 11-for-18 shooting, reminding everyone why he's one of the league's best scorers (23.2 PPG on 50.0% FG). But the story of this team remains Christian Kim, who is putting up historically absurd numbers: 18.8 PPG and 15.8 RPG on 64.4% shooting. His 18-rebound, 12-point outing against Aron included 6 offensive boards. Josh Paik added an 11-point, 11-rebound double-double of his own. At 3-1, Sean has the best record in the league and the roster depth to keep it."
+      "writeup": "Sean Lee went nuclear against Nathan — 31 points on 13-for-22 shooting with a season-high 9 assists, arguably the best individual performance of the season. Christian Kim continued his absurd campaign with 27 points and 16 rebounds (7 offensive), drilling 5 threes along the way. Despite playing with just 5 players (Jon Han filled in), they held Nathan to a 70-70 draw against a full squad. At 3-1-1, Sean owns the league's best win percentage (.700) and the most terrifying two-man punch in the OBA. The only concern: Josh Paik went 1-for-9, and the depth beyond Sean and Christian remains thin. But when those two are cooking, it simply doesn't matter."
     },
     {
       "rank": 2,
-      "teamId": "matt",
-      "record": "2-1",
-      "stats": { "fgPct": 33.1, "tpPct": 16.7, "ftPct": 70.8 },
-      "writeup": "Team Matt makes a massive leap after taking down the previously first-place Nathan squad, 57-54. Matt Paik led the charge with 24 points, 10 rebounds, 4 assists, and a block — his third straight game with double-digit rebounds. Kanghee Lee was arguably even more impactful with 16 points, 8 boards, and a season-high 4 steals. The defense was suffocating, holding Nathan to just 54 points — their lowest output of the season. At 2-1 with the league's best point differential per game (+2.0), this team is legit. The only concern: they've played just three games while everyone else has played four or five. More data needed, but the arrow is pointing straight up."
+      "teamId": "nathan",
+      "record": "3-2-1",
+      "stats": { "fgPct": 38.9, "tpPct": 37.3, "ftPct": 81.7 },
+      "writeup": "The 70-70 draw against Sean was an encouraging result after two straight losses — Nathan had the full squad together and it showed. Nathan Paik was dominant as usual with 23 points, 14 rebounds, and 5 assists, while Austin Im bounced back in a big way with 19 points on efficient 8-for-14 shooting (3-for-5 from three). The supporting cast stepped up: Ryan Choi nailed 3 threes for 13 points and Andrew Paik added 9/5/2 on 3-for-4 shooting. At 3-2-1 with the most games played (6) of any team, the overall talent remains among the league's best. The question is whether they can convert these close games into wins — three of their last four have been decided by 3 points or less (or a draw)."
     },
     {
       "rank": 3,
-      "teamId": "nathan",
-      "record": "3-2",
-      "stats": { "fgPct": 38.9, "tpPct": 37.3, "ftPct": 81.7 },
-      "writeup": "A two-game losing streak has Team Nathan tumbling from the top of the rankings. After the Week 3 blowout loss to Aron, they followed it up with a 57-54 defeat to Matt — marking the first time Nathan has lost back-to-back games in OBA history. Nathan Paik is still the league's best player by the numbers (27.6 PPG, 10.2 RPG, 3.2 APG), and his 26-point, 11-rebound, 5-three-pointer outing against Matt was impressive, but Austin Im struggled (4-for-20 from the field). When Austin gets going (he's still averaging 22.8 PPG with a league-best 48.6% from three), this team is elite. But the supporting cast needs to be more consistent — Ryan Choi went 1-for-8 against Matt. The talent is there for a bounce-back, but the margin for error is shrinking."
+      "teamId": "matt",
+      "record": "3-2-0",
+      "stats": { "fgPct": 33.1, "tpPct": 16.7, "ftPct": 70.8 },
+      "writeup": "A tale of two games for Team Matt. On Saturday, Matt Paik delivered one of the most dominant performances in OBA history — 44 points on 15-for-24 shooting with 11 free throws to lead a 69-60 rout of Aron. Then a day later, the team fell 59-62 to PJo in a stunning upset where the supporting cast went cold. The Matt Paik dependency is becoming impossible to ignore: he's averaging 40%+ usage and when teams neutralize him (or he drops to 'just' 24), the cupboard is bare. Ben Ngo showed flashes across both games (14 and 12 points), but the heavy reliance on one player makes this team volatile. At 3-2, they're still above .500, but the loss to PJo is a warning sign."
     },
     {
       "rank": 4,
       "teamId": "aron",
-      "record": "2-2",
+      "record": "2-3-0",
       "stats": { "fgPct": 45.0, "tpPct": 27.8, "ftPct": 72.1 },
-      "writeup": "After the statement win over Nathan in Week 3, Team Aron came back down to earth with a 67-62 loss to Sean. Missing Jonathan Chung, Jon Han, and Brandon Kim forced them to rely on fill-in Andrew Paik, who delivered an impressive 16 points on 4-for-8 from three. Josh Sun continued his All-OBA campaign with 20 points, 8 rebounds, 6 assists, 4 steals, and 2 blocks — he's quietly averaging 18.5 PPG, 4.0 APG, and a league-best 2.8 SPG. Aron Kim chipped in 21 points and 10 rebounds. The biggest question for this team is consistency: they beat Nathan by 19 then lost to Sean by 5. When fully healthy, they have the firepower to beat anyone, but the 2-2 record tells the story of a team still searching for its identity."
+      "writeup": "Back-to-back losses have Team Aron sliding down the standings after a promising 2-1 start. The 69-60 loss to Matt was rough — Matt Paik hung 44 points on them and there was simply no answer. Aron Kim (18/7) and Jonathan Chung (17/4 with a block) did their part, but the supporting cast couldn't keep up. Brandon Kim chipped in 11, but Ryan Yum went 3-for-9 from the field (all three-point attempts) and David Son was a zero across the board. With Jon Han playing as a fill-in on other teams, the roster is thinner than it was early in the season. At 2-3, Aron Kim — who went undefeated in Season 1 — needs to will this group back on track before it's too late."
     },
     {
       "rank": 5,
       "teamId": "pjo",
-      "record": "0-4",
+      "record": "1-4-0",
       "stats": { "fgPct": 32.0, "tpPct": 19.3, "ftPct": 47.6 },
-      "writeup": "Team PJo had the bye week, but the 0-4 record still looms large. The numbers paint a bleak picture: worst field goal percentage (32.0%), worst three-point percentage (19.3%), worst free throw percentage (47.6%), and a league-worst -9.2 point differential. The bright spots are individual — Wonjin Jang is averaging a double-double (16.7 PPG, 10.3 RPG) and PJo himself puts up 11.8 PPG and 11.0 RPG — but the team shooting has been abysmal. They need Joseph Yoo, who averaged 13.5 PPG in his two appearances, back in the lineup, and they desperately need someone to knock down threes (the team is shooting under 20% from deep). Every remaining game is must-win territory."
+      "writeup": "THE DROUGHT IS OVER. Team PJo finally broke through with a 62-59 upset over Matt, and it wasn't a fluke — they were the better team from start to finish. PJo was magnificent: 15 points, 13 rebounds, 5 assists, and 2 steals, dominating the glass against a bigger Matt frontline. Justin Ho led the scoring with 17, and four different players reached double figures (Isaac Seong 10, PJun 10). The balanced attack and the defense — holding Matt Paik to 24 on 9-for-19 — showed what this team is capable of when the shots fall. At 1-4, the record is still ugly, but the performance was anything but. Can they carry this momentum forward, or was it lightning in a bottle?"
     }
   ]
 }

@@ -12,7 +12,7 @@
       <a href="team.html?id=${t.id}" class="card team-card">
         <div class="card-header" style="background: linear-gradient(135deg, ${t.color}, ${t.colorSecondary || t.color})">
           <h3>${t.name}</h3>
-          <div class="record">${r.wins} - ${r.losses}</div>
+          <div class="record">${r.wins} - ${r.losses} - ${r.draws}</div>
         </div>
         <div class="card-body">
           <p>View roster &amp; stats &rarr;</p>

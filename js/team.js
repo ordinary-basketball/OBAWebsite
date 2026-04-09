@@ -50,7 +50,7 @@
   document.getElementById('team-content').innerHTML = `
     <div class="team-header" style="background: linear-gradient(135deg, ${team.color}, ${team.colorSecondary || team.color})">
       <h1>${team.name}</h1>
-      <div class="record">${record.wins} - ${record.losses}</div>
+      <div class="record">${record.wins} - ${record.losses} - ${record.draws}</div>
     </div>
 
     <div class="averages-grid">
