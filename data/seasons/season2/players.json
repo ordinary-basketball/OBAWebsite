@@ -21,13 +21,13 @@
 
   { "id": "pjop",        "name": "PJo",             "teamId": "pjo",    "position": "G", "height": "5'9\"" },
   { "id": "wonjinj",     "name": "Wonjin Jang",     "teamId": "pjo",    "position": "G/F", "height": "6'2\"" },
-  { "id": "josephy",     "name": "Joseph Yoo",      "teamId": "pjo",    "position": "F/C", "height": "6'2\"" },
+  { "id": "josephy",     "name": "Joseph Yoo",      "teamId": "pjo",    "position": "F/C", "height": "6'2\"", "inactive": true },
   { "id": "justinh",     "name": "Justin Ho",       "teamId": "pjo",    "position": "G", "height": "5'10\"" },
   { "id": "pjun",        "name": "PJun",            "teamId": "pjo",    "position": "G",  "height": "5'9\"" },
   { "id": "isaacs1",     "name": "Isaac Shin",      "teamId": "pjo",    "position": "F", "height": "5'9\"" },
   { "id": "isaacs2",     "name": "Isaac Seong",     "teamId": "pjo",    "position": "G", "height": "5'9\"" },
   { "id": "seungjunr",   "name": "Seungjun Ryu",    "teamId": "pjo",    "position": "C", "height": "5'11\"" },
-  { "id": "samk",        "name": "Sam Kim",         "teamId": "pjo",    "position": "F",  "height": "5'10\"" },
+  { "id": "samk",        "name": "Sam Kim",         "teamId": "pjo",    "position": "F",  "height": "5'10\"", "inactive": true },
 
   { "id": "mattp",       "name": "Matt Paik",       "teamId": "matt",   "position": "G", "height": "5'10\"" },
   { "id": "kangheel",    "name": "Kanghee Lee",     "teamId": "matt",   "position": "G/F", "height": "5'10\"" },
@@ -35,7 +35,7 @@
   { "id": "chrish",      "name": "Chris Hong",      "teamId": "matt",   "position": "G", "height": "5'9\"" },
   { "id": "dylank",      "name": "Dylan Kim",       "teamId": "matt",   "position": "C",  "height": "5'11\"" },
   { "id": "davidk",      "name": "David Kim",       "teamId": "matt",   "position": "C", "height": "6'0\"" },
-  { "id": "michaelr",    "name": "Michael Ryu",     "teamId": "matt",   "position": "G/F", "height": "5'10\"" },
+  { "id": "michaelr",    "name": "Michael Ryu",     "teamId": "matt",   "position": "G/F", "height": "5'10\"", "inactive": true },
   { "id": "bryanh",      "name": "Bryan Hong",      "teamId": "matt",   "position": "G", "height": "5'9\"" },
 
   { "id": "seanl",       "name": "Sean Lee",        "teamId": "sean",   "position": "G/F", "height": "6'1\"" },

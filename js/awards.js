@@ -63,7 +63,7 @@
 
   // Eligibility: minimum 2 games played
   const minGP = 2;
-  const eligible = Object.keys(playerStats).filter(pid => playerStats[pid].gp >= minGP && playerMap[pid]);
+  const eligible = Object.keys(playerStats).filter(pid => playerStats[pid].gp >= minGP && playerMap[pid] && !playerMap[pid].inactive);
 
   // --- Award Algorithms ---
 

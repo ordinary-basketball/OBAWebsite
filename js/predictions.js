@@ -61,7 +61,7 @@
     const roster = players.filter(p => p.teamId === teamId);
 
     return roster
-      .filter(p => playerStats[p.id] && playerStats[p.id].gp >= 2)
+      .filter(p => !p.inactive && playerStats[p.id] && playerStats[p.id].gp >= 2)
       .map(p => {
         const s = playerStats[p.id];
         const ppg = s.pts / s.gp;
