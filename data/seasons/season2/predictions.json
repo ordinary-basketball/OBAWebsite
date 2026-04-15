@@ -1,15 +1,20 @@
 {
-  "week": 6,
-  "date": "2026-04-12",
+  "week": 7,
+  "date": "2026-04-19",
   "matchups": [
     {
-      "homeTeam": "pjo",
-      "awayTeam": "aron",
-      "spread": { "favorite": "aron", "line": 4.5 }
+      "homeTeam": "sean",
+      "awayTeam": "pjo",
+      "spread": { "favorite": "sean", "line": 9.5 }
     },
     {
-      "homeTeam": "sean",
+      "homeTeam": "nathan",
       "awayTeam": "matt",
+      "spread": { "favorite": "nathan", "line": 1.5 }
+    },
+    {
+      "homeTeam": "aron",
+      "awayTeam": "sean",
       "spread": { "favorite": "sean", "line": 2.5 }
     }
   ]
