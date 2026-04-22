@@ -7,35 +7,35 @@
       "rank": 1,
       "teamId": "nathan",
       "record": "4-2-1",
-      "stats": { "fgPct": 38.9, "tpPct": 37.3, "ftPct": 81.7 },
+      "stats": { "fgPct": 40.6, "tpPct": 38.1, "ftPct": 83.8 },
       "writeup": "The 1-seed is locked. Nathan Paik saved his best for the biggest game of the season — 31 points, 17 rebounds, and 4 assists on 59% shooting (3-for-5 from three, 8-for-8 from the line) to beat Matt 75-69 and clinch the top spot. It was a masterclass in controlled aggression: 4 offensive rebounds showed Nathan crashing the glass with purpose, and only 2 turnovers in a game of this magnitude. The supporting cast delivered too — Austin Im hit 4 threes for 18, Ryan Choi nailed 4 threes for 15, and Andrew Paik was everywhere with 8 rebounds, 4 assists, and 2 blocks. This team enters the playoffs with the league's deepest rotation and its best player playing his best basketball. They'll face the Matt/PJo play-in winner in the semis."
     },
     {
       "rank": 2,
       "teamId": "sean",
       "record": "4-2-1",
-      "stats": { "fgPct": 42.3, "tpPct": 24.1, "ftPct": 63.2 },
+      "stats": { "fgPct": 41.8, "tpPct": 23.8, "ftPct": 62.0 },
       "writeup": "Same record as Nathan, but the 2-seed on point differential (+12 vs +14). Sean Lee reminded everyone why he's in the MVP conversation with a 36-point, 9-rebound, 8-assist explosion against PJo — his best game of the season. Christian Kim continued to defy logic with another 21-rebound performance (8-for-9 FG, 18/21). When both are healthy and available, this is the most dangerous duo in the league. The concern heading into the Aron semifinal: Sean played two games in one day in Week 7, and fatigue could be a factor. Ethan Lee going a combined 1-for-21 across both games is also worrying — they need a third scorer to emerge."
     },
     {
       "rank": 3,
       "teamId": "aron",
       "record": "4-3-0",
-      "stats": { "fgPct": 45.0, "tpPct": 27.8, "ftPct": 72.1 },
+      "stats": { "fgPct": 42.8, "tpPct": 28.4, "ftPct": 63.3 },
       "writeup": "Team Aron finished the regular season surging with back-to-back wins, including a gutsy 61-59 victory over Sean to close it out. Aron Kim has found his groove as a do-everything floor general — his 21/15/3 line against Sean featured 3 threes, and Jonathan Chung added 16 on efficient shooting. The return of Jon Han to the roster makes them a different team: his 7/10 with 8 offensive rebounds against Sean was a masterclass in hustle. At 4-3 with the league's best point differential (+26), they might be the hottest team heading into the playoffs. The Sean semifinal is a rematch of a game they just won — and momentum is real."
     },
     {
       "rank": 4,
       "teamId": "matt",
       "record": "4-3-0",
-      "stats": { "fgPct": 33.1, "tpPct": 16.7, "ftPct": 70.8 },
+      "stats": { "fgPct": 41.1, "tpPct": 23.9, "ftPct": 68.6 },
       "writeup": "A disappointing end to what was a promising season. After climbing to the 1-seed in Week 6, Matt dropped the final game to Nathan 69-75 despite Matt Paik matching Nathan Paik point-for-point with 31. The issue was the same one that's plagued this team all year: when Matt Paik's supporting cast doesn't show up, they lose. Kanghee Lee had 16 and David Kim added 12, but Ben Ngo went 1-for-8 and Bryan Hong 2-for-5. At 4-3, they're in the play-in against PJo — a game they should win, but already lost once this season (59-62 in Week 5). The margin for error is gone."
     },
     {
       "rank": 5,
       "teamId": "pjo",
       "record": "1-6-0",
-      "stats": { "fgPct": 32.0, "tpPct": 19.3, "ftPct": 47.6 },
+      "stats": { "fgPct": 35.1, "tpPct": 21.5, "ftPct": 52.9 },
       "writeup": "A brutal 1-6 regular season, but Team PJo isn't dead yet. They've already proven they can beat Matt (62-59 in Week 5), and in the play-in, anything can happen in a single game. PJo himself has been solid down the stretch — 24/10/8 with 4 steals against Sean showed real two-way ability — and Justin Ho is a legit scorer when he's on (18 PPG over the last two games). The shooting numbers are ugly across the board, but the effort and defensive intensity have never been in question. If they can replicate the Week 5 formula — balanced scoring, strong rebounding, limiting Matt Paik — the upset isn't out of the question."
     }
   ]
