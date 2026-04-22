@@ -14,6 +14,16 @@
   --surface-dark: #1F2937;
   --border: #E5E7EB;
   --text-muted: #6B7280;
+
+  /* Design tokens — unified visual language */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 1px 2px rgba(17,24,39,0.05), 0 1px 3px rgba(17,24,39,0.04);
+  --shadow-md: 0 4px 6px -1px rgba(17,24,39,0.08), 0 2px 4px -1px rgba(17,24,39,0.05);
+  --shadow-lg: 0 12px 24px -6px rgba(17,24,39,0.12), 0 4px 8px -2px rgba(17,24,39,0.06);
+  --transition: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* --- Reset & Base --- */
@@ -1478,6 +1488,17 @@ a.record-card:hover {
   margin-bottom: 40px;
 }
 
+.matchup-label {
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
 .matchup-header {
   display: flex;
   align-items: center;
@@ -1660,4 +1681,253 @@ a.record-card:hover {
   color: var(--text-muted);
   font-style: italic;
   margin-top: 24px;
+}
+
+/* ============================================================
+   PLAYER COMP ("Plays Like") section on player page
+   ============================================================ */
+.player-comp {
+  margin: 24px 0 30px;
+  padding: 22px 28px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #0f172a 0%, #1F2937 55%, #111827 100%);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.player-comp::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 180px;
+  height: 100%;
+  background: radial-gradient(circle at top right, var(--team-accent, rgba(230,57,70,0.35)) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.player-comp-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--team-accent, #E63946), rgba(255,255,255,0.08));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #fff;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  flex-shrink: 0;
+}
+
+.player-comp-body {
+  position: relative;
+  z-index: 1;
+}
+
+.player-comp-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 4px;
+}
+
+.player-comp-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+}
+
+.player-comp-rationale {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.75);
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 640px;
+}
+
+.player-comp-meta {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.player-comp-role-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--team-accent, rgba(230,57,70,0.3));
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.player-comp-meta-stat {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.55);
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+@media (max-width: 600px) {
+  .player-comp {
+    grid-template-columns: 1fr;
+    padding: 18px 20px;
+    gap: 14px;
+  }
+  .player-comp-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1rem;
+  }
+  .player-comp-name { font-size: 1.4rem; }
+  .player-comp-rationale { font-size: 0.85rem; }
+}
+
+/* ============================================================
+   COHESIVE VISUAL LANGUAGE — appended late to unify card treatments.
+   All card-like selectors share one radius scale, one shadow scale,
+   and one transition easing. Hero/feature cards use --radius-lg.
+   ============================================================ */
+
+.card,
+.team-card,
+.avg-card,
+.career-high-item,
+.photo-card,
+.ranking-card,
+.spread-card,
+.prop-card,
+.all-team-player,
+.leader-column,
+.game-row,
+.stats-table,
+.table-wrapper {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.matchup-header,
+.champion-banner,
+.award-card {
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.award-card { box-shadow: var(--shadow-sm); }
+
+/* Unified hover-lift for interactive/content cards */
+.card:hover,
+.team-card:hover,
+.avg-card:hover,
+.career-high-item:hover,
+.photo-card:hover,
+.all-team-player:hover,
+.game-row:hover,
+.leader-column:hover,
+.award-card:hover,
+.ranking-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================================
+   MICRO-INTERACTIONS — fade-in on load + count-up animations.
+   Count-up is triggered by JS in data.js via MutationObserver.
+   ============================================================ */
+
+@keyframes obaFadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes obaFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hero,
+main > * {
+  animation: obaFadeInUp 420ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+main > *:nth-child(1) { animation-delay: 20ms; }
+main > *:nth-child(2) { animation-delay: 80ms; }
+main > *:nth-child(3) { animation-delay: 140ms; }
+main > *:nth-child(4) { animation-delay: 200ms; }
+main > *:nth-child(5) { animation-delay: 260ms; }
+main > *:nth-child(n+6) { animation-delay: 320ms; }
+
+/* Staggered fade-in within grids of cards */
+.averages-grid > *,
+.career-highs-grid > *,
+.teams-grid > *,
+.leaders-grid > *,
+.quick-links > * {
+  animation: obaFadeInUp 380ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.averages-grid > *:nth-child(1), .career-highs-grid > *:nth-child(1), .teams-grid > *:nth-child(1), .leaders-grid > *:nth-child(1), .quick-links > *:nth-child(1) { animation-delay: 30ms; }
+.averages-grid > *:nth-child(2), .career-highs-grid > *:nth-child(2), .teams-grid > *:nth-child(2), .leaders-grid > *:nth-child(2), .quick-links > *:nth-child(2) { animation-delay: 70ms; }
+.averages-grid > *:nth-child(3), .career-highs-grid > *:nth-child(3), .teams-grid > *:nth-child(3), .leaders-grid > *:nth-child(3), .quick-links > *:nth-child(3) { animation-delay: 110ms; }
+.averages-grid > *:nth-child(4), .career-highs-grid > *:nth-child(4), .teams-grid > *:nth-child(4), .leaders-grid > *:nth-child(4), .quick-links > *:nth-child(4) { animation-delay: 150ms; }
+.averages-grid > *:nth-child(5), .career-highs-grid > *:nth-child(5), .teams-grid > *:nth-child(5), .leaders-grid > *:nth-child(5) { animation-delay: 190ms; }
+.averages-grid > *:nth-child(6), .career-highs-grid > *:nth-child(6), .teams-grid > *:nth-child(6), .leaders-grid > *:nth-child(6) { animation-delay: 230ms; }
+.averages-grid > *:nth-child(n+7), .career-highs-grid > *:nth-child(n+7), .teams-grid > *:nth-child(n+7), .leaders-grid > *:nth-child(n+7) { animation-delay: 270ms; }
+
+/* Count-up state: hidden briefly before JS fills it, then animated */
+.avg-card .value[data-countup-pending] { visibility: hidden; }
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  main > *,
+  .averages-grid > *,
+  .career-highs-grid > *,
+  .teams-grid > *,
+  .leaders-grid > *,
+  .quick-links > *,
+  .card,
+  .team-card,
+  .avg-card,
+  .career-high-item,
+  .photo-card,
+  .all-team-player,
+  .game-row,
+  .leader-column,
+  .award-card,
+  .ranking-card {
+    animation: none !important;
+    transition: none !important;
+  }
+  .card:hover, .team-card:hover, .avg-card:hover, .career-high-item:hover,
+  .photo-card:hover, .all-team-player:hover, .game-row:hover, .leader-column:hover,
+  .award-card:hover, .ranking-card:hover {
+    transform: none;
+  }
 }

@@ -1,21 +1,25 @@
 {
-  "week": 7,
-  "date": "2026-04-19",
+  "week": 8,
+  "date": "2026-04-26",
+  "title": "Playoff Day",
   "matchups": [
     {
-      "homeTeam": "sean",
+      "homeTeam": "matt",
       "awayTeam": "pjo",
-      "spread": { "favorite": "sean", "line": 9.5 }
+      "spread": { "favorite": "matt", "line": 7.5 },
+      "label": "Play-In Game"
+    },
+    {
+      "homeTeam": "sean",
+      "awayTeam": "aron",
+      "spread": { "favorite": "sean", "line": 2.5 },
+      "label": "Semifinal 1"
     },
     {
       "homeTeam": "nathan",
       "awayTeam": "matt",
-      "spread": { "favorite": "nathan", "line": 1.5 }
-    },
-    {
-      "homeTeam": "aron",
-      "awayTeam": "sean",
-      "spread": { "favorite": "sean", "line": 2.5 }
+      "spread": { "favorite": "nathan", "line": 4.5 },
+      "label": "Semifinal 2"
     }
   ]
 }

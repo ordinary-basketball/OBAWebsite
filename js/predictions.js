@@ -91,6 +91,7 @@
 
     html += `
       <div class="matchup-section">
+        ${matchup.label ? `<div class="matchup-label">${matchup.label}</div>` : ''}
         <div class="matchup-header">
           <span class="matchup-team-name" style="color:${home.color}">${home.name}</span>
           <span class="matchup-vs">vs</span>

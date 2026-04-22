@@ -22,6 +22,7 @@
       [g.awayTeam, g.awayScore, g.homeScore]
     ].forEach(([tid, pf, pa]) => {
       if (!teamStats[tid]) return;
+      if (g.excludeRecord && g.excludeRecord.includes(tid)) return;
       teamStats[tid].gp++;
       teamStats[tid].ptsFor += pf;
       teamStats[tid].ptsAgainst += pa;
@@ -61,31 +62,73 @@
   const activeTeamIds = Object.keys(teamStats).filter(id => teamStats[id].gp > 0);
   const leagueAvgOppPPG = activeTeamIds.reduce((sum, id) => sum + teamStats[id].ptsAgainst / teamStats[id].gp, 0) / activeTeamIds.length;
 
+  // Compute playoff seeding: sort by effective wins, then point differential
+  const seedings = activeTeamIds
+    .map(id => {
+      const ts = teamStats[id];
+      const effWins = ts.wins + 0.5 * ts.draws;
+      const diff = ts.ptsFor - ts.ptsAgainst;
+      return { id, effWins, diff };
+    })
+    .sort((a, b) => b.effWins - a.effWins || b.diff - a.diff);
+  const teamSeed = {};
+  seedings.forEach((s, i) => { teamSeed[s.id] = i + 1; });
+  const numSeeds = seedings.length || 1;
+
   // Eligibility: minimum 2 games played
   const minGP = 2;
   const eligible = Object.keys(playerStats).filter(pid => playerStats[pid].gp >= minGP && playerMap[pid] && !playerMap[pid].inactive);
 
   // --- Award Algorithms ---
 
-  // MVP: Game Score per game + team record boost
+  // Seed boost: 1-seed gets +0.1, last seed gets 0, linear scale
+  function seedBoost(teamId) {
+    const seed = teamSeed[teamId] || numSeeds;
+    return 0.1 * (numSeeds - seed) / (numSeeds - 1 || 1);
+  }
+
+  // MVP: Game Score + team record + seed + carry factor (how irreplaceable)
   function computeMVP() {
+    // Best Game Score per team (among eligible)
+    const bestGSByTeam = {};
+    eligible.forEach(pid => {
+      const tid = playerMap[pid].teamId;
+      const gs = playerStats[pid].gameScore;
+      if (!bestGSByTeam[tid] || gs > bestGSByTeam[tid]) bestGSByTeam[tid] = gs;
+    });
+    // Second-best Game Score per team
+    const secondGSByTeam = {};
+    eligible.forEach(pid => {
+      const tid = playerMap[pid].teamId;
+      const gs = playerStats[pid].gameScore;
+      if (gs < bestGSByTeam[tid]) {
+        if (!secondGSByTeam[tid] || gs > secondGSByTeam[tid]) secondGSByTeam[tid] = gs;
+      }
+    });
+
     return eligible.map(pid => {
       const s = playerStats[pid];
-      const ts = teamStats[playerMap[pid].teamId];
+      const tid = playerMap[pid].teamId;
+      const ts = teamStats[tid];
       const winPct = ts.gp > 0 ? (ts.wins + 0.5 * ts.draws) / ts.gp : 0.5;
-      const score = s.gameScore * (1 + 0.3 * (winPct - 0.5));
+      // Carry factor: if best on team, bonus based on gap to #2 teammate
+      let carry = 0;
+      if (s.gameScore >= bestGSByTeam[tid] && secondGSByTeam[tid]) {
+        carry = 0.15 * (s.gameScore - secondGSByTeam[tid]) / s.gameScore;
+      }
+      const score = s.gameScore * (1 + 0.3 * (winPct - 0.5) + seedBoost(tid) + carry);
       return { playerId: pid, score, stats: `${s.ppg.toFixed(1)} PPG, ${s.rpg.toFixed(1)} RPG, ${s.apg.toFixed(1)} APG` };
     }).sort((a, b) => b.score - a.score).slice(0, 5);
   }
 
-  // DPOY: Steals + Blocks weighted, rebounds, team defense factor
+  // DPOY: Steals + Blocks weighted, rebounds, team defense factor + seed boost
   function computeDPOY() {
     return eligible.map(pid => {
       const s = playerStats[pid];
       const ts = teamStats[playerMap[pid].teamId];
       const oppPPG = ts.gp > 0 ? ts.ptsAgainst / ts.gp : leagueAvgOppPPG;
       const teamDefFactor = 1 + 0.3 * ((leagueAvgOppPPG - oppPPG) / (leagueAvgOppPPG || 1));
-      const score = (s.spg * 3 + s.bpg * 3 + s.rpg * 0.8) * teamDefFactor;
+      const score = (s.spg * 3 + s.bpg * 3 + s.rpg * 0.8) * (teamDefFactor + seedBoost(playerMap[pid].teamId));
       return { playerId: pid, score, stats: `${s.spg.toFixed(1)} SPG, ${s.bpg.toFixed(1)} BPG, ${s.rpg.toFixed(1)} RPG` };
     }).sort((a, b) => b.score - a.score).slice(0, 5);
   }
@@ -101,7 +144,8 @@
     ]);
     return eligible.filter(pid => !starters.has(pid)).map(pid => {
       const s = playerStats[pid];
-      return { playerId: pid, score: s.gameScore, stats: `${s.ppg.toFixed(1)} PPG, ${s.rpg.toFixed(1)} RPG, ${s.apg.toFixed(1)} APG` };
+      const score = s.gameScore * (1 + seedBoost(playerMap[pid].teamId));
+      return { playerId: pid, score, stats: `${s.ppg.toFixed(1)} PPG, ${s.rpg.toFixed(1)} RPG, ${s.apg.toFixed(1)} APG` };
     }).sort((a, b) => b.score - a.score).slice(0, 5);
   }
 
@@ -136,7 +180,7 @@
         const rpgDiff = s2.rpg - s1rpg;
         const apgDiff = s2.apg - s1apg;
         const tsDiff = s2ts - s1ts;
-        const score = ppgDiff * 2 + rpgDiff + apgDiff + tsDiff * 10;
+        const score = (ppgDiff * 2 + rpgDiff + apgDiff + tsDiff * 10) * (1 + seedBoost(playerMap[pid].teamId));
         const sign = ppgDiff >= 0 ? '+' : '';
         return { playerId: pid, score, stats: `${sign}${ppgDiff.toFixed(1)} PPG (${s1ppg.toFixed(1)} \u2192 ${s2.ppg.toFixed(1)})` };
       }).sort((a, b) => b.score - a.score).slice(0, 5);
