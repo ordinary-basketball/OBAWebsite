@@ -75,6 +75,32 @@
     "bestTruck": {
       "playerId": "quintinj",
       "highlights": "Coolest truck in the OBA. Earned this one without lacing up."
+    },
+    "bestStamina": {
+      "playerId": "bryanh",
+      "displayName": "Unc Bryan",
+      "highlights": "Never gets tired — runs the floor harder in the 4th than most do in the 1st."
+    },
+    "bestVideographer": {
+      "playerId": "kangheel",
+      "highlights": "If you've seen an OBA highlight, he probably shot it. Behind every great memory."
+    },
+    "fearlessShotTaker": {
+      "playerId": "joshp",
+      "highlights": "Will hoist from anywhere — confidence levels unmatched."
+    },
+    "bestMindset": {
+      "playerId": "justinh",
+      "displayName": "Justin Ho (@Mindsetguyy)",
+      "highlights": "Mindset is everything — he literally wrote the playbook."
+    },
+    "commissionerFavorite": {
+      "playerId": "christianc",
+      "highlights": "The commissioner has spoken. No further questions."
+    },
+    "underratedPlayer": {
+      "playerId": "brandonk",
+      "highlights": "Quietly efficient every night — does the little things that don't show up on the highlight reel but show up in the win column."
     }
   },
   "funTeams": {
@@ -88,6 +114,9 @@
     "cutest": ["davids", "nathany", "seungjunr", "quintinj", "pdavid"],
     "hungry": ["pjun", "pdavid", "jobol", "ryany", "kangheel"],
     "crashoutTrio": ["pjop", "timp", "mattp"],
-    "refTrio": ["jonh", "aronk", "pjop"]
+    "refTrio": ["jonh", "aronk", "pjop"],
+    "allSmiles": ["davidk", "benn", "seungjunr", "isaacs2", "nathany"],
+    "ultimateScreener": ["jobol", "dylank", "timp", "ericl", "christiank"],
+    "swag": ["justinp", "isaacs1", "justiny", "josephy", "jonh"]
   }
 }
