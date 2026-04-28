@@ -20,8 +20,8 @@
     "highlights": "27.9 PPG — the only scoring mark anyone wanted, dropped at will."
   },
   "allOBA1": ["austini", "mattp", "seanl", "nathanp", "christiank"],
-  "allOBA2": ["joshs", "wonjinj", "justinh", "aronk", "jonathanc"],
-  "allOBA3": ["ryanc", "pjop", "kangheel", "davidk", "brandonk"],
+  "allOBA2": ["joshs", "wonjinj", "pjop", "aronk", "jonathanc"],
+  "allOBA3": ["ryanc", "justinh", "kangheel", "davidk", "brandonk"],
   "allDefense": ["chrish", "christiank", "ethanl", "kangheel", "joshs"],
   "funAwards": {
     "hustlePlayer": {
