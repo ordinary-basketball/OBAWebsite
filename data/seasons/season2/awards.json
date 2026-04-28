@@ -1,8 +1,93 @@
 {
-  "mvp": null,
-  "dpoy": null,
-  "sixthMan": null,
-  "mip": null,
-  "allOBA": [],
-  "allDefense": []
+  "mvp": {
+    "playerId": "christiank",
+    "highlights": "21.4 PPG, 17.0 RPG on 58% FG — gravitational pull around the rim. League's most unmovable force on both ends."
+  },
+  "dpoy": {
+    "playerId": "joshs",
+    "highlights": "2.2 SPG, 1.0 BPG, 7.0 RPG — turns possessions into transition like a one-man defensive system."
+  },
+  "sixthMan": {
+    "playerId": "davidk",
+    "highlights": "7.7 PPG, 6.1 RPG on 63% FG — quietest bucket-getter in the league, never takes a bad shot."
+  },
+  "mip": {
+    "playerId": "ryany",
+    "highlights": "From spectator to contributor — biggest leap in the league this season."
+  },
+  "scoringTitle": {
+    "playerId": "mattp",
+    "highlights": "27.9 PPG — the only scoring mark anyone wanted, dropped at will."
+  },
+  "allOBA1": ["austini", "mattp", "seanl", "nathanp", "christiank"],
+  "allOBA2": ["joshs", "wonjinj", "justinh", "aronk", "jonathanc"],
+  "allOBA3": ["ryanc", "pjop", "kangheel", "davidk", "brandonk"],
+  "allDefense": ["chrish", "christiank", "ethanl", "kangheel", "joshs"],
+  "funAwards": {
+    "hustlePlayer": {
+      "playerId": "jonh",
+      "highlights": "8.0 PPG, 8.3 RPG on 56% FG — out-rebounds bigger guys with sheer want-to."
+    },
+    "bigTimeShotmaker": {
+      "playerId": "yubik",
+      "highlights": "When the moment was biggest, the shot was wettest. Cold-blooded when called upon."
+    },
+    "bestCelebration": {
+      "playerId": "benn",
+      "highlights": "Very chalant cellys — every bucket gets the full reaction package."
+    },
+    "comebackPlayer": {
+      "playerId": "mattp",
+      "highlights": "Came back from a torn Achilles to lead the league in scoring at 27.9 PPG. Enough said."
+    },
+    "bestAndWorstTrashTalker": {
+      "playerId": "timp",
+      "highlights": "Passionate orator — brings the energy whether the words land or not. We love him for it."
+    },
+    "playmaker": {
+      "playerId": "seanl",
+      "highlights": "26.7 PPG and 4.1 APG — alpha scorer who still finds the open man every possession."
+    },
+    "openAIPlayer": {
+      "playerId": "ericl",
+      "highlights": "Works at OpenAI lol."
+    },
+    "hackerOfTheYear": {
+      "playerId": "pjop",
+      "highlights": "Fouls everything that moves. The whistle's best friend."
+    },
+    "bestIsoPlay": {
+      "playerId": "justiny",
+      "highlights": "Saucy move on Christian Kim from the top of the key — the moment of the season."
+    },
+    "sniperOfTheYear": {
+      "playerId": "austini",
+      "highlights": "21.3 PPG on 48% from three (25/52) — defenders had no answer all year."
+    },
+    "craziestShot": {
+      "playerId": "seanl",
+      "highlights": "Three-pointer to tie the game against Aron — straight ice."
+    },
+    "clutchPlayer": {
+      "playerId": "aronk",
+      "highlights": "12.9 PPG, 10.4 RPG — closes possessions when it matters, owns the boards in winning time."
+    },
+    "bestTruck": {
+      "playerId": "quintinj",
+      "highlights": "Coolest truck in the OBA. Earned this one without lacing up."
+    }
+  },
+  "funTeams": {
+    "newcomer": ["brandonk", "wonjinj", "seanl", "christiank", "justinh"],
+    "newcomer2": ["andrewp", "ethanl", "chrish", "dylank", "joshp"],
+    "threePoint": ["austini", "ryanc", "mattp", "justinp", "andrewp"],
+    "jordanPoole": ["ryanc", "andrewp", "isaacs2", "brandonk", "christianc"],
+    "swole": ["isaacs1", "josephy", "dylank", "wonjinj", "isaacs2"],
+    "dinosaur": ["pjun", "pjop", "bryanh", "pdavid", "justiny"],
+    "hottest": ["justiny", "jonathanc", "pjop", "dylank", "yubik"],
+    "cutest": ["davids", "nathany", "seungjunr", "quintinj", "pdavid"],
+    "hungry": ["pjun", "pdavid", "jobol", "ryany", "kangheel"],
+    "crashoutTrio": ["pjop", "timp", "mattp"],
+    "refTrio": ["jonh", "aronk", "pjop"]
+  }
 }

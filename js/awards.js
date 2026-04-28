@@ -207,7 +207,6 @@
         <div class="award-body">
           <div class="award-icon">${icon}</div>
           <div class="player-name"><a href="player.html?id=${p.id}">${p.name}</a></div>
-          <div class="player-team">${p.teamName}</div>
           ${awardData.highlights ? `<div class="highlights">${awardData.highlights}</div>` : ''}
         </div>
       </div>`;
@@ -236,7 +235,6 @@
               return `
                 <li>
                   <a href="player.html?id=${p.id}" class="frontrunner-name">${p.name}</a>
-                  <span class="frontrunner-team">${p.teamName}</span>
                   <span class="frontrunner-stats">${r.stats}</span>
                 </li>`;
             }).join('')}
@@ -261,7 +259,6 @@
             return `
               <a href="player.html?id=${p.id}" class="all-team-player">
                 <div class="name">${p.name}</div>
-                <div class="team">${p.teamName}</div>
               </a>`;
           }).join('')}
         </div>
@@ -281,12 +278,27 @@
   if (awards.mip !== undefined) {
     html += renderAward('Most Improved Player', '\u{1F4C8}', awards.mip, mipRunners);
   }
+  if (awards.scoringTitle) {
+    html += renderWinner('OBA Scoring Title', '\u{1F3AF}', awards.scoringTitle);
+  }
 
   // Fun awards (only when assigned)
   const fun = awards.funAwards;
   if (fun) {
+    if (fun.hustlePlayer) html += renderWinner('Hustle Player of the Year', '\u{1F525}', fun.hustlePlayer);
+    if (fun.bigTimeShotmaker) html += renderWinner('Big Time Shotmaker', '\u{1F3AF}', fun.bigTimeShotmaker);
+    if (fun.playmaker) html += renderWinner('Playmaker of the Year', '\u{1F3AF}', fun.playmaker);
+    if (fun.sniperOfTheYear) html += renderWinner('Sniper of the Year', '\u{1F3F9}', fun.sniperOfTheYear);
+    if (fun.clutchPlayer) html += renderWinner('Clutch Player of the Year', '\u{2744}\u{FE0F}', fun.clutchPlayer);
+    if (fun.craziestShot) html += renderWinner('Craziest Shot of the Year', '\u{1F92F}', fun.craziestShot);
+    if (fun.comebackPlayer) html += renderWinner('Comeback Player of the Year', '\u{1F504}', fun.comebackPlayer);
+    if (fun.bestIsoPlay) html += renderWinner('Best Iso Play of the Year', '\u{1F3AC}', fun.bestIsoPlay);
+    if (fun.bestTruck) html += renderWinner('Best Truck Award', '\u{1F69B}', fun.bestTruck);
+    if (fun.hackerOfTheYear) html += renderWinner('Hacker of the Year', '\u{1F6A8}', fun.hackerOfTheYear);
     if (fun.bestCelebration) html += renderWinner('Best Celebration', '\u{1F389}', fun.bestCelebration);
+    if (fun.bestAndWorstTrashTalker) html += renderWinner('Best & Worst Trash Talker', '\u{1F5E3}\u{FE0F}', fun.bestAndWorstTrashTalker);
     if (fun.bestTrashTalker) html += renderWinner('Best Trash Talker (in love)', '\u{1F5E3}\u{FE0F}', fun.bestTrashTalker);
+    if (fun.openAIPlayer) html += renderWinner('OpenAI Player of the Year', '\u{1F916}', fun.openAIPlayer);
     if (fun.mrHustle) html += renderWinner('Mr. Hustle', '\u{1F525}', fun.mrHustle);
   }
   html += '</div>';
@@ -295,8 +307,31 @@
     html += `<p class="awards-eligibility">${awards.eligibilityNote}</p>`;
   }
 
-  html += renderAllTeam('All-OBA First Team', awards.allOBA);
+  // All-OBA: support legacy single-team `allOBA` and multi-tier `allOBA1/2/3`
+  if (awards.allOBA1 || awards.allOBA2 || awards.allOBA3) {
+    if (awards.allOBA1) html += renderAllTeam('All-OBA First Team', awards.allOBA1);
+    if (awards.allOBA2) html += renderAllTeam('All-OBA Second Team', awards.allOBA2);
+    if (awards.allOBA3) html += renderAllTeam('All-OBA Third Team', awards.allOBA3);
+  } else {
+    html += renderAllTeam('All-OBA First Team', awards.allOBA);
+  }
   html += renderAllTeam('All-OBA Defensive Team', awards.allDefense);
+
+  // Fun lineup teams (Jordan Poole, Swole, 3PT, Cutest, Hottest, Dinosaur, etc.)
+  const ft = awards.funTeams;
+  if (ft) {
+    if (ft.newcomer) html += renderAllTeam('All-OBA Newcomer First Team', ft.newcomer);
+    if (ft.newcomer2) html += renderAllTeam('All-OBA Newcomer Second Team', ft.newcomer2);
+    if (ft.threePoint) html += renderAllTeam('All-OBA 3PT Team', ft.threePoint);
+    if (ft.jordanPoole) html += renderAllTeam('All-OBA Jordan Poole Team', ft.jordanPoole);
+    if (ft.swole) html += renderAllTeam('All-OBA Swole Team', ft.swole);
+    if (ft.dinosaur) html += renderAllTeam('All-OBA Dinosaur Team', ft.dinosaur);
+    if (ft.hottest) html += renderAllTeam("Commissioner's Hottest Lineup", ft.hottest);
+    if (ft.cutest) html += renderAllTeam("Commissioner's Cutest Lineup", ft.cutest);
+    if (ft.hungry) html += renderAllTeam("Commissioner's Hungriest Lineup", ft.hungry);
+    if (ft.crashoutTrio) html += renderAllTeam('OBA Crashout Trio', ft.crashoutTrio);
+    if (ft.refTrio) html += renderAllTeam('Best...? Ref Trio', ft.refTrio);
+  }
 
   // Playoff awards
   if (awards.finalsMvp || awards.playoffMvp) {
