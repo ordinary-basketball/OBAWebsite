@@ -301,6 +301,7 @@
     if (fun.bestVideographer) html += renderWinner('Best Videographer', '\u{1F3A5}', fun.bestVideographer);
     if (fun.commissionerFavorite) html += renderWinner("Commissioner's Favorite Player", '\u{2B50}', fun.commissionerFavorite);
     if (fun.underratedPlayer) html += renderWinner('Underrated Player of the Year', '\u{1F48E}', fun.underratedPlayer);
+    if (fun.crowdFavorite) html += renderWinner('Crowd Favorite Award', '\u{1F44F}', fun.crowdFavorite);
     if (fun.hackerOfTheYear) html += renderWinner('Hacker of the Year', '\u{1F6A8}', fun.hackerOfTheYear);
     if (fun.bestCelebration) html += renderWinner('Best Celebration', '\u{1F389}', fun.bestCelebration);
     if (fun.bestAndWorstTrashTalker) html += renderWinner('Best & Worst Trash Talker', '\u{1F5E3}\u{FE0F}', fun.bestAndWorstTrashTalker);
