@@ -773,6 +773,19 @@ img { max-width: 100%; }
   font-style: italic;
 }
 
+.records-section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--black);
+  margin: 32px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+.records-section-title:first-of-type { margin-top: 0; }
+
 .awards-thanks-banner {
   background: linear-gradient(135deg, #1D1D2B 0%, #1F2937 50%, #111827 100%);
   color: #fff;

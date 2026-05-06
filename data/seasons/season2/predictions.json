@@ -1,25 +1,13 @@
 {
-  "week": 8,
-  "date": "2026-04-26",
-  "title": "Playoff Day",
+  "week": 9,
+  "date": "2026-05-09",
+  "title": "Championship Day",
   "matchups": [
     {
-      "homeTeam": "matt",
-      "awayTeam": "pjo",
-      "spread": { "favorite": "matt", "line": 7.5 },
-      "label": "Play-In Game"
-    },
-    {
-      "homeTeam": "sean",
-      "awayTeam": "aron",
-      "spread": { "favorite": "sean", "line": 2.5 },
-      "label": "Semifinal 1"
-    },
-    {
       "homeTeam": "nathan",
-      "awayTeam": "matt",
+      "awayTeam": "sean",
       "spread": { "favorite": "nathan", "line": 4.5 },
-      "label": "Semifinal 2"
+      "label": "OBA Championship"
     }
   ]
 }
