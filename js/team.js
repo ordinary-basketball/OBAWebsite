@@ -47,6 +47,33 @@
     return avgB - avgA;
   });
 
+  const allPlayers = await OBA.getPlayers();
+  const playerNames = Object.fromEntries(allPlayers.map(p => [p.id, p.name]));
+  const playoffGames = games.filter(g => g.round && (g.homeTeam === teamId || g.awayTeam === teamId));
+  let playoffWins = 0, playoffLosses = 0;
+  const playoffTotals = {};
+  playoffGames.forEach(g => {
+    const isHome = g.homeTeam === teamId;
+    const myScore = isHome ? g.homeScore : g.awayScore;
+    const oppScore = isHome ? g.awayScore : g.homeScore;
+    if (myScore > oppScore) playoffWins++;
+    else if (myScore < oppScore) playoffLosses++;
+    (g.boxScore[teamId] || []).forEach(b => {
+      if (b.fillin) return;
+      if (!playoffTotals[b.playerId]) {
+        playoffTotals[b.playerId] = { gp: 0, pts: 0, reb: 0, ast: 0, stl: 0, blk: 0, to: 0, fgm: 0, fga: 0, tpm: 0, tpa: 0, ftm: 0, fta: 0 };
+      }
+      const t = playoffTotals[b.playerId];
+      t.gp++;
+      Object.keys(t).forEach(k => {
+        if (k !== 'gp') t[k] += b[k] || 0;
+      });
+    });
+  });
+  const playoffRows = Object.entries(playoffTotals)
+    .map(([pid, t]) => ({ playerId: pid, name: playerNames[pid] || pid, totals: t }))
+    .sort((a, b) => b.totals.pts / b.totals.gp - a.totals.pts / a.totals.gp);
+
   document.getElementById('team-content').innerHTML = `
     <div class="team-header" style="background: linear-gradient(135deg, ${team.color}, ${team.colorSecondary || team.color})">
       <h1>${team.name}</h1>
@@ -94,5 +121,41 @@
         </tbody>
       </table>
     </div>
+
+    ${playoffRows.length > 0 ? `
+    <h2 class="section-title">Playoff Stats <span class="playoff-gp">(${playoffWins} - ${playoffLosses}, ${playoffGames.length} game${playoffGames.length > 1 ? 's' : ''})</span></h2>
+    <div class="table-wrapper">
+      <table class="stats-table">
+        <thead>
+          <tr>
+            <th>Player</th><th>GP</th><th>PPG</th><th>RPG</th><th>APG</th><th>SPG</th><th>BPG</th><th>TOPG</th><th>FG</th><th>FG%</th><th>3PT</th><th>3P%</th><th>FT</th><th>FT%</th><th>TS%</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${playoffRows.map(({ playerId, name, totals: t }) => {
+            const avg = OBA.calcAverages(t);
+            const tsDenom = 2 * (t.fga + 0.44 * t.fta);
+            return `<tr>
+              <td><a href="player.html?id=${playerId}">${name}</a></td>
+              <td>${t.gp}</td>
+              <td>${avg.ppg}</td>
+              <td>${avg.rpg}</td>
+              <td>${avg.apg}</td>
+              <td>${avg.spg}</td>
+              <td>${avg.bpg}</td>
+              <td>${avg.topg}</td>
+              <td>${avg.fgmpg}/${avg.fgapg}</td>
+              <td>${avg.fgPct}%</td>
+              <td>${avg.tpmpg}/${avg.tpapg}</td>
+              <td>${avg.tpPct}%</td>
+              <td>${avg.ftmpg}/${avg.ftapg}</td>
+              <td>${avg.ftPct}%</td>
+              <td>${tsDenom ? (t.pts / tsDenom * 100).toFixed(1) : '0.0'}%</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+    ` : ''}
   `;
 })();
