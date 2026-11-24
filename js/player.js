@@ -18,19 +18,6 @@
   const { totals, gameLogs } = await OBA.getPlayerSeasonStats(playerId);
   const avg = OBA.calcAverages(totals);
 
-  // Compute playoff stats
-  const playoffLogs = gameLogs.filter(g => g.round);
-  let playoffAvg = null;
-  if (playoffLogs.length > 0) {
-    const pTotals = { gp: 0, pts: 0, reb: 0, ast: 0, stl: 0, blk: 0, to: 0, fgm: 0, fga: 0, tpm: 0, tpa: 0, ftm: 0, fta: 0 };
-    playoffLogs.forEach(g => {
-      pTotals.gp++;
-      ['pts','reb','ast','stl','blk','to','fgm','fga','tpm','tpa','ftm','fta'].forEach(k => pTotals[k] += g[k] || 0);
-    });
-    playoffAvg = OBA.calcAverages(pTotals);
-    playoffAvg.gp = pTotals.gp;
-  }
-
   // Gather stats across all seasons (exclude exhibition from records)
   const recordSeasons = OBA.seasons.filter(s => s !== 'exhibition');
   const seasonRows = [];
@@ -54,6 +41,35 @@
         seasonRows.push({ season: s, label: OBA.seasonLabels[s] || s, team: sTeamName, gp: sTotals.gp, avg: sAvg });
       }
     } catch(e) {}
+  }
+
+  const sumLogs = logs => {
+    const t = { gp: 0, pts: 0, reb: 0, ast: 0, stl: 0, blk: 0, to: 0, fgm: 0, fga: 0, tpm: 0, tpa: 0, ftm: 0, fta: 0 };
+    logs.forEach(g => {
+      t.gp++;
+      ['pts','reb','ast','stl','blk','to','fgm','fga','tpm','tpa','ftm','fta'].forEach(k => t[k] += g[k] || 0);
+    });
+    return t;
+  };
+  const playoffLogs = allLogs.filter(g => g.round);
+  let playoffAvg = null;
+  const playoffRows = [];
+  if (playoffLogs.length > 0) {
+    const pTotals = sumLogs(playoffLogs);
+    playoffAvg = OBA.calcAverages(pTotals);
+    playoffAvg.gp = pTotals.gp;
+    for (const s of recordSeasons) {
+      const sPlayoffLogs = playoffLogs.filter(g => g.season === s);
+      if (sPlayoffLogs.length === 0) continue;
+      const sPlayoffTotals = sumLogs(sPlayoffLogs);
+      let sPlayoffTeam = '';
+      try {
+        const sTeams = await OBA.getTeams(s);
+        const sTeam = sTeams.find(t => t.id === sPlayoffLogs[0].forTeam);
+        if (sTeam) sPlayoffTeam = sTeam.name;
+      } catch(e) {}
+      playoffRows.push({ season: s, label: OBA.seasonLabels[s] || s, team: sPlayoffTeam, gp: sPlayoffTotals.gp, avg: OBA.calcAverages(sPlayoffTotals) });
+    }
   }
 
   // Compute career highs from all game logs
@@ -104,7 +120,7 @@
     </div>
 
     ${playoffAvg ? `
-    <h2 class="section-title">Playoff Averages <span class="playoff-gp">(${playoffAvg.gp} game${playoffAvg.gp > 1 ? 's' : ''})</span></h2>
+    <h2 class="section-title">Playoff Averages <span class="playoff-gp">(${playoffAvg.gp} game${playoffAvg.gp > 1 ? 's' : ''}${playoffRows.length > 1 ? ', all seasons' : ''})</span></h2>
     <div class="averages-grid playoff-averages">
       <div class="avg-card"><div class="value">${playoffAvg.ppg}</div><div class="label">PPG</div></div>
       <div class="avg-card"><div class="value">${playoffAvg.rpg}</div><div class="label">RPG</div></div>
@@ -114,6 +130,23 @@
       <div class="avg-card"><div class="value">${playoffAvg.fgPct}%</div><div class="label">FG%</div></div>
       <div class="avg-card"><div class="value">${playoffAvg.tpPct}%</div><div class="label">3P%</div></div>
       <div class="avg-card"><div class="value">${playoffAvg.ftPct}%</div><div class="label">FT%</div></div>
+    </div>
+    <div class="table-wrapper">
+      <table class="stats-table season-by-season">
+        <thead>
+          <tr>
+            <th>Playoffs</th><th>Team</th><th>GP</th><th>PPG</th><th>RPG</th><th>APG</th><th>SPG</th><th>BPG</th><th>FG</th><th>FG%</th><th>3PT</th><th>3P%</th><th>FT</th><th>FT%</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${playoffRows.map(r => `<tr class="${r.season === OBA.currentSeason ? 'current-season-row' : ''}">
+            <td>${r.label}</td><td>${r.team}</td><td>${r.gp}</td>
+            <td>${r.avg.ppg}</td><td>${r.avg.rpg}</td><td>${r.avg.apg}</td>
+            <td>${r.avg.spg}</td><td>${r.avg.bpg}</td>
+            <td>${r.avg.fgmpg}/${r.avg.fgapg}</td><td>${r.avg.fgPct}%</td><td>${r.avg.tpmpg}/${r.avg.tpapg}</td><td>${r.avg.tpPct}%</td><td>${r.avg.ftmpg}/${r.avg.ftapg}</td><td>${r.avg.ftPct}%</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
     </div>
     ` : ''}
 
@@ -145,7 +178,7 @@
         const g = h.best.game;
         const myTeam = g.forTeam || player.teamId;
         const oppId = g.homeTeam === myTeam ? g.awayTeam : g.homeTeam;
-        return `<a href="game.html?id=${g.gameId}" class="career-high-item">
+        return `<a href="game.html?id=${g.gameId}&season=${g.season}" class="career-high-item">
           <span class="career-high-value">${h.best.val}</span>
           <span class="career-high-label">${h.label}</span>
           <span class="career-high-meta">vs ${oppId} &middot; ${OBA.formatDate(g.date)}</span>
